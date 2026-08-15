@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Tatros is a technology consulting and digital engineering company."
+    >
+    <title>Tatros | Technology Consulting and Digital Engineering</title>
+
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/components/navigation.js" defer></script>
+  </head>
+  <body>
+    <a class="navigation__skip-link" href="#main-content">Skip to main content</a>
+
+    <!-- ====================================================================
+         Global navigation
+         ==================================================================== -->
+    <header class="navigation" data-navigation>
+      <div class="navigation__container l-container">
+        <a class="navigation__logo" href="/" aria-label="Tatros home">
+          <span class="navigation__logo-mark" aria-hidden="true">T</span>
+          <span class="navigation__logo-text">Tatros</span>
+        </a>
+
+        <button
+          class="navigation__menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+          aria-label="Open navigation menu"
+          data-navigation-toggle
+        >
+          <span class="navigation__menu-icon" aria-hidden="true">
+            <span class="navigation__menu-icon-line"></span>
+            <span class="navigation__menu-icon-line"></span>
+            <span class="navigation__menu-icon-line"></span>
+          </span>
+          <span class="navigation__menu-label">Menu</span>
+        </button>
+
+        <nav
+          class="navigation__panel"
+          id="primary-navigation"
+          aria-label="Primary navigation"
+          data-navigation-panel
+        >
+          <ul class="navigation__list" role="list">
+            <li class="navigation__item">
+              <a class="navigation__link" href="/" aria-current="page">Home</a>
+            </li>
+
+            <li class="navigation__item navigation__item--has-submenu" data-navigation-item>
+              <div class="navigation__item-row">
+                <a class="navigation__link" href="/services/">Services</a>
+                <button
+                  class="navigation__submenu-toggle"
+                  type="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  aria-controls="services-menu"
+                  aria-label="Show Services menu"
+                  data-submenu-toggle
+                >
+                  <svg
+                    class="navigation__submenu-icon"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    height="16"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="m3 6 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </button>
+              </div>
+
+              <ul class="navigation__submenu" id="services-menu" role="list" data-submenu>
+                <li><a class="navigation__submenu-link" href="/services/artificial-intelligence/">Artificial Intelligence</a></li>
+                <li><a class="navigation__submenu-link" href="/services/website-development/">Website Development</a></li>
+                <li><a class="navigation__submenu-link" href="/services/mobile-app-development/">Mobile App Development</a></li>
+                <li><a class="navigation__submenu-link" href="/services/software-development/">Software Development</a></li>
+                <li><a class="navigation__submenu-link" href="/services/it-support/">IT Support</a></li>
+                <li><a class="navigation__submenu-link" href="/services/cloud-solutions/">Cloud Solutions</a></li>
+                <li><a class="navigation__submenu-link" href="/services/it-consulting/">IT Consulting</a></li>
+              </ul>
+            </li>
+
+            <li class="navigation__item navigation__item--has-submenu" data-navigation-item>
+              <div class="navigation__item-row">
+                <a class="navigation__link" href="/industries/">Industries</a>
+                <button
+                  class="navigation__submenu-toggle"
+                  type="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  aria-controls="industries-menu"
+                  aria-label="Show Industries menu"
+                  data-submenu-toggle
+                >
+                  <svg
+                    class="navigation__submenu-icon"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    height="16"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="m3 6 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </button>
+              </div>
+
+              <ul class="navigation__submenu" id="industries-menu" role="list" data-submenu>
+                <li><a class="navigation__submenu-link" href="/industries/startups/">Startups</a></li>
+                <li><a class="navigation__submenu-link" href="/industries/small-business/">Small Business</a></li>
+                <li><a class="navigation__submenu-link" href="/industries/enterprise/">Enterprise</a></li>
+                <li><a class="navigation__submenu-link" href="/industries/government/">Government</a></li>
+              </ul>
+            </li>
+
+            <li class="navigation__item">
+              <a class="navigation__link" href="/portfolio/">Portfolio</a>
+            </li>
+            <li class="navigation__item">
+              <a class="navigation__link" href="/blog/">Insights</a>
+            </li>
+            <li class="navigation__item">
+              <a class="navigation__link" href="/about/">About</a>
+            </li>
+            <li class="navigation__item">
+              <a class="navigation__link" href="/contact/">Contact</a>
+            </li>
+          </ul>
+
+          <a class="navigation__cta" href="/contact/">Start a project</a>
+        </nav>
+      </div>
+
+      <button
+        class="navigation__overlay"
+        type="button"
+        aria-label="Close navigation menu"
+        tabindex="-1"
+        data-navigation-overlay
+      ></button>
+    </header>
+
+    <!-- ====================================================================
+         Hero
+         ==================================================================== -->
+    <main id="main-content" tabindex="-1">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__container l-container">
+          <div class="hero__content">
+            <p class="hero__badge">AI-Driven Digital Transformation</p>
+
+            <h1 class="hero__title" id="hero-title">
+              Transforming Business Through
+              <span class="hero__title-highlight">Technology</span>
+            </h1>
+
+            <p class="hero__description">
+              Tatros helps startups, enterprises, and government organizations
+              build secure websites, custom software, AI solutions, mobile
+              applications, cloud infrastructure, and digital platforms that
+              drive measurable business growth.
+            </p>
+
+            <div class="hero__actions" role="group" aria-label="Hero actions">
+              <a class="hero__action hero__action--primary" href="/contact/">
+                Start Your Project
+                <span class="hero__action-icon" aria-hidden="true">→</span>
+              </a>
+              <a class="hero__action hero__action--secondary" href="/services/">
+                Explore Services
+              </a>
+            </div>
+
+            <ul class="hero__trust-list" aria-label="Tatros capabilities">
+              <li class="hero__trust-item">AI Solutions</li>
+              <li class="hero__trust-item">Custom Software</li>
+              <li class="hero__trust-item">Enterprise IT</li>
+              <li class="hero__trust-item">Government Technology</li>
+            </ul>
+          </div>
+
+          <!-- Decorative CSS technology illustration. -->
+          <div class="hero__visual" aria-hidden="true">
+            <div class="hero__visual-glow"></div>
+            <div class="hero__visual-orbit"></div>
+
+            <div class="hero-network">
+              <span class="hero-network__node"></span>
+              <span class="hero-network__node"></span>
+              <span class="hero-network__node"></span>
+              <span class="hero-network__line"></span>
+              <span class="hero-network__line"></span>
+              <span class="hero-network__line"></span>
+            </div>
+
+            <div class="hero-dashboard">
+              <div class="hero-dashboard__header">
+                <div class="hero-dashboard__brand">
+                  <span class="hero-dashboard__brand-mark"></span>
+                  Intelligence Console
+                </div>
+                <span class="hero-dashboard__status">Systems online</span>
+              </div>
+
+              <div class="hero-dashboard__body">
+                <div class="hero-dashboard__main">
+                  <div class="hero-dashboard__metrics">
+                    <div class="hero-dashboard__metric">
+                      <span class="hero-dashboard__label">Workflows</span>
+                      <span class="hero-dashboard__value">Active</span>
+                      <span class="hero-dashboard__trend">Optimized</span>
+                    </div>
+                    <div class="hero-dashboard__metric">
+                      <span class="hero-dashboard__label">Systems</span>
+                      <span class="hero-dashboard__value">Stable</span>
+                      <span class="hero-dashboard__trend">Monitored</span>
+                    </div>
+                  </div>
+
+                  <div class="hero-dashboard__chart">
+                    <span class="hero-dashboard__chart-title">Digital performance</span>
+                    <div class="hero-dashboard__bars">
+                      <span class="hero-dashboard__bar"></span>
+                      <span class="hero-dashboard__bar"></span>
+                      <span class="hero-dashboard__bar"></span>
+                      <span class="hero-dashboard__bar"></span>
+                      <span class="hero-dashboard__bar"></span>
+                      <span class="hero-dashboard__bar"></span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="hero-dashboard__activity">
+                  <p class="hero-dashboard__activity-title">Live activity</p>
+                  <ul class="hero-dashboard__activity-list">
+                    <li class="hero-dashboard__activity-item">
+                      <span class="hero-dashboard__activity-icon"></span>
+                      <span class="hero-dashboard__activity-copy">
+                        <span class="hero-dashboard__activity-line"></span>
+                        <span class="hero-dashboard__activity-line hero-dashboard__activity-line--short"></span>
+                      </span>
+                    </li>
+                    <li class="hero-dashboard__activity-item">
+                      <span class="hero-dashboard__activity-icon"></span>
+                      <span class="hero-dashboard__activity-copy">
+                        <span class="hero-dashboard__activity-line"></span>
+                        <span class="hero-dashboard__activity-line hero-dashboard__activity-line--short"></span>
+                      </span>
+                    </li>
+                    <li class="hero-dashboard__activity-item">
+                      <span class="hero-dashboard__activity-icon"></span>
+                      <span class="hero-dashboard__activity-copy">
+                        <span class="hero-dashboard__activity-line"></span>
+                        <span class="hero-dashboard__activity-line hero-dashboard__activity-line--short"></span>
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-float-card hero-float-card--ai">
+              <span class="hero-float-card__eyebrow">AI readiness</span>
+              <span class="hero-float-card__value">
+                <span class="hero-float-card__indicator">AI</span>
+                Production ready
+              </span>
+            </div>
+
+            <div class="hero-float-card hero-float-card--security">
+              <span class="hero-float-card__eyebrow">Security posture</span>
+              <span class="hero-float-card__value">
+                <span class="hero-float-card__indicator">✓</span>
+                Protected
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           Services overview
+           ================================================================== -->
+      <section class="services" aria-labelledby="services-title">
+        <div class="l-container">
+          <header class="services__header">
+            <p class="services__eyebrow">What we build</p>
+            <h2 class="services__title" id="services-title">
+              Transforming Ideas Into Digital Solutions
+            </h2>
+            <p class="services__introduction">
+              Tatros combines intelligent technology, digital engineering, and
+              strategic consulting to create secure, scalable solutions for
+              complex business and public-sector needs.
+            </p>
+          </header>
+
+          <div class="services__pillars">
+            <!-- Intelligent Solutions pillar -->
+            <section class="service-pillar" aria-labelledby="intelligent-solutions-title">
+              <header class="service-pillar__header">
+                <span class="service-pillar__number" aria-hidden="true">01</span>
+                <h3 class="service-pillar__title" id="intelligent-solutions-title">
+                  Intelligent Solutions
+                </h3>
+              </header>
+
+              <ul class="service-pillar__cards" role="list">
+                <li>
+                  <article class="service-card">
+                    <svg class="service-card__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.6"></circle>
+                      <path d="M12 3v3m0 12v3M3 12h3m12 0h3M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1m0-12.8-2.1 2.1m-8.6 8.6-2.1 2.1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+                    </svg>
+                    <h4 class="service-card__title">Artificial Intelligence</h4>
+                    <p class="service-card__description">Apply responsible AI to products, workflows, and decisions with security and measurable value in mind.</p>
+                    <a class="service-card__link" href="/services/artificial-intelligence/">Learn More<span class="u-visually-hidden"> about Artificial Intelligence</span></a>
+                  </article>
+                </li>
+                <li>
+                  <article class="service-card">
+                    <svg class="service-card__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path d="M5 7h9m0 0-2.5-2.5M14 7l-2.5 2.5M19 17h-9m0 0 2.5-2.5M10 17l2.5 2.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <h4 class="service-card__title">Automation</h4>
+                    <p class="service-card__description">Streamline repetitive processes and connect systems through reliable, governed automation.</p>
+                    <a class="service-card__link" href="/services/artificial-intelligence/">Learn More<span class="u-visually-hidden"> about Automation</span></a>
+                  </article>
+                </li>
+                <li>
+                  <article class="service-card">
+                    <svg class="service-card__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path d="M4 19V9m5 10V5m5 14v-7m5 7V3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+                    </svg>
+                    <h4 class="service-card__title">Business Intelligence</h4>
+                    <p class="service-card__description">Turn operational information into clear dashboards and decision-ready organizational insight.</p>
+                    <a class="service-card__link" href="/services/artificial-intelligence/">Learn More<span class="u-visually-hidden"> about Business Intelligence</span></a>
+                  </article>
+                </li>
+                <li>
+                  <article class="service-card">
+                    <svg class="service-card__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path d="M4 18l4-5 4 2 4-7 4-3M4 21h16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <h4 class="service-card__title">Data Analytics</h4>
+                    <p class="service-card__description">Unify, analyze, and interpret data to reveal patterns, performance, and opportunities.</p>
+                    <a class="service-card__link" href="/services/artificial-intelligence/">Learn More<span class="u-visually-hidden"> about Data Analytics</span></a>
+                  </article>
+                </li>
+              </ul>
+            </section>
+
+            <!-- Digital Engineering pillar -->
+            <section class="service-pillar service-pillar--engineering" aria-labelledby="digital-engineering-title">
+              <header class="service-pillar__header">
+                <span class="service-pillar__number" aria-hidden="true">02</span>
+                <h3 class="service-pillar__title" id="digital-engineering-title">
+                  Digital Engineering
+                </h3>
+              </header>
+
+              <ul class="service-pillar__cards" role="list">
+                <li>
+                  <article class="service-card">
+                    <svg class="service-card__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"></rect>
+                      <path d="M3 8h18M7 6h.01M10 6h.01" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+                    </svg>
+                    <h4 class="service-card__title">Website Development</h4>
+                    <p class="service-card__description">Build accessible, high-performance websites engineered for credibility, growth, and maintainability.</p>
+                    <a class="service-card__link" href="/services/website-development/">Learn More<span class="u-visually-hidden"> about Website Development</span></a>
+                  </article>
+                </li>
+                <li>
+                  <article class="service-card">
+                    <svg class="service-card__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <rect x="7" y="2.5" width="10" height="19" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"></rect>
+                      <path d="M10 5h4m-3 13.5h2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+                    </svg>
+                    <h4 class="service-card__title">Mobile Applications</h4>
+                    <p class="service-card__description">Create secure mobile experiences that serve users consistently across devices and platforms.</p>
+                    <a class="service-card__link" href="/services/mobile-app-development/">Learn More<span class="u-visually-hidden"> about Mobile Applications</span></a>
+                  </article>
+                </li>
+                <li>
+                  <article class="service-card">
+                    <svg class="service-card__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path d="m8 7-5 5 5 5m8-10 5 5-5 5m-5.5 3 3-16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <h4 class="service-card__title">Custom Software</h4>
+                    <p class="service-card__description">Engineer scalable software around specific workflows, integrations, users, and business objectives.</p>
+                    <a class="service-card__link" href="/services/software-development/">Learn More<span class="u-visually-hidden"> about Custom Software</span></a>
+                  </article>
+                </li>
+                <li>
+                  <article class="service-card">
+                    <svg class="service-card__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path d="M5 4h14v11H5zM8 19h8m-4-4v4M8 8h8m-8 3h5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <h4 class="service-card__title">UI/UX Design</h4>
+                    <p class="service-card__description">Design clear, inclusive digital experiences grounded in user needs and organizational outcomes.</p>
+                    <a class="service-card__link" href="/services/website-development/">Learn More<span class="u-visually-hidden"> about UI and UX Design</span></a>
+                  </article>
+                </li>
+              </ul>
+            </section>
+
+            <!-- Technology Consulting pillar -->
+            <section class="service-pillar service-pillar--consulting" aria-labelledby="technology-consulting-title">
+              <header class="service-pillar__header">
+                <span class="service-pillar__number" aria-hidden="true">03</span>
+                <h3 class="service-pillar__title" id="technology-consulting-title">
+                  Technology Consulting
+                </h3>
+              </header>
+
+              <ul class="service-pillar__cards" role="list">
+                <li>
+                  <article class="service-card">
+                    <svg class="service-card__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path d="M7 18h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.2 8.5 4.75 4.75 0 0 0 7 18Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <h4 class="service-card__title">Cloud Solutions</h4>
+                    <p class="service-card__description">Plan, migrate, and optimize secure cloud environments for resilience and sustainable scale.</p>
+                    <a class="service-card__link" href="/services/cloud-solutions/">Learn More<span class="u-visually-hidden"> about Cloud Solutions</span></a>
+                  </article>
+                </li>
+                <li>
+                  <article class="service-card">
+                    <svg class="service-card__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path d="M4 13v-2a8 8 0 0 1 16 0v2M4 13h3v6H5a1 1 0 0 1-1-1v-5Zm16 0h-3v6h2a1 1 0 0 0 1-1v-5ZM17 19c0 1.1-.9 2-2 2h-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <h4 class="service-card__title">IT Support</h4>
+                    <p class="service-card__description">Maintain reliable technology operations with responsive support, monitoring, and clear accountability.</p>
+                    <a class="service-card__link" href="/services/it-support/">Learn More<span class="u-visually-hidden"> about IT Support</span></a>
+                  </article>
+                </li>
+                <li>
+                  <article class="service-card">
+                    <svg class="service-card__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path d="M4 7h10m0 0-3-3m3 3-3 3m9 7H10m0 0 3-3m-3 3 3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <h4 class="service-card__title">Digital Transformation</h4>
+                    <p class="service-card__description">Align technology, processes, data, and people around a practical modernization strategy.</p>
+                    <a class="service-card__link" href="/services/it-consulting/">Learn More<span class="u-visually-hidden"> about Digital Transformation</span></a>
+                  </article>
+                </li>
+                <li>
+                  <article class="service-card">
+                    <svg class="service-card__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6M8 10h.01M12 10h.01M16 10h.01" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <h4 class="service-card__title">Government Solutions</h4>
+                    <p class="service-card__description">Support accessible, secure, and maintainable public-sector services within formal governance needs.</p>
+                    <a class="service-card__link" href="/industries/government/">Learn More<span class="u-visually-hidden"> about Government Solutions</span></a>
+                  </article>
+                </li>
+              </ul>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

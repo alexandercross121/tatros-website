@@ -1,0 +1,646 @@
+/* ==========================================================================
+   Navigation tokens
+   Component-specific values alias the shared design system.
+   ========================================================================== */
+
+.navigation {
+  --navigation-height: 5rem;
+  --navigation-panel-width: 28rem;
+  --navigation-surface: rgb(255 255 255 / 0.82);
+  --navigation-surface-solid: var(--tatros-color-surface-default);
+  --navigation-border: rgb(184 196 209 / 0.7);
+  --navigation-text: var(--tatros-color-text-primary);
+  --navigation-muted: var(--tatros-color-text-secondary);
+
+  position: sticky;
+  inset-block-start: 0;
+  z-index: var(--tatros-layer-sticky);
+  color: var(--navigation-text);
+  background: var(--navigation-surface);
+  border-block-end: var(--tatros-border-width-thin) solid transparent;
+  transition:
+    background-color var(--tatros-motion-duration-standard)
+      var(--tatros-motion-easing-standard),
+    border-color var(--tatros-motion-duration-standard)
+      var(--tatros-motion-easing-standard),
+    box-shadow var(--tatros-motion-duration-standard)
+      var(--tatros-motion-easing-standard);
+  -webkit-backdrop-filter: blur(1rem) saturate(140%);
+  backdrop-filter: blur(1rem) saturate(140%);
+}
+
+.navigation.is-scrolled,
+.navigation.is-menu-open {
+  background: rgb(255 255 255 / 0.94);
+  border-block-end-color: var(--navigation-border);
+  box-shadow: var(--tatros-shadow-2);
+}
+
+@supports not ((-webkit-backdrop-filter: blur(1rem)) or (backdrop-filter: blur(1rem))) {
+  .navigation {
+    background: var(--navigation-surface-solid);
+  }
+}
+
+/* ==========================================================================
+   Skip link
+   ========================================================================== */
+
+.navigation__skip-link {
+  position: fixed;
+  inset-block-start: var(--tatros-space-3);
+  inset-inline-start: var(--tatros-space-3);
+  z-index: var(--tatros-layer-toast);
+  padding: var(--tatros-space-3) var(--tatros-space-4);
+  border-radius: var(--tatros-radius-medium);
+  background: var(--tatros-color-surface-strong);
+  color: var(--tatros-color-text-inverse);
+  font-weight: var(--tatros-font-weight-semibold);
+  text-decoration: none;
+  box-shadow: var(--tatros-shadow-3);
+  transform: translateY(calc(-100% - var(--tatros-space-8)));
+  transition: transform var(--tatros-motion-duration-fast)
+    var(--tatros-motion-easing-enter);
+}
+
+.navigation__skip-link:visited {
+  color: var(--tatros-color-text-inverse);
+}
+
+.navigation__skip-link:focus-visible {
+  color: var(--tatros-color-text-inverse);
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Shared header structure
+   ========================================================================== */
+
+.navigation__container {
+  display: flex;
+  min-block-size: var(--navigation-height);
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--tatros-space-6);
+}
+
+.navigation__logo {
+  position: relative;
+  z-index: calc(var(--tatros-layer-overlay) + 1);
+  display: inline-flex;
+  min-block-size: var(--tatros-size-target-minimum);
+  align-items: center;
+  gap: var(--tatros-space-3);
+  flex: 0 0 auto;
+  color: var(--navigation-text);
+  font-size: 1.25rem;
+  font-weight: var(--tatros-font-weight-bold);
+  line-height: 1;
+  letter-spacing: var(--tatros-letter-spacing-tight);
+  text-decoration: none;
+}
+
+.navigation__logo:visited,
+.navigation__logo:hover,
+.navigation__logo:active {
+  color: var(--navigation-text);
+}
+
+.navigation__logo-mark {
+  display: inline-grid;
+  inline-size: 2.25rem;
+  block-size: 2.25rem;
+  place-items: center;
+  border-radius: var(--tatros-radius-medium);
+  background: var(--tatros-color-action-primary);
+  color: var(--tatros-color-text-inverse);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* ==========================================================================
+   Menu toggle and animated hamburger
+   Hidden without enhancement so navigation remains available if JS fails.
+   ========================================================================== */
+
+.navigation__menu-toggle {
+  position: relative;
+  z-index: calc(var(--tatros-layer-overlay) + 1);
+  display: none;
+  min-inline-size: var(--tatros-size-target-minimum);
+  min-block-size: var(--tatros-size-target-minimum);
+  align-items: center;
+  justify-content: center;
+  gap: var(--tatros-space-2);
+  padding: var(--tatros-space-2) var(--tatros-space-3);
+  border: var(--tatros-border-width-thin) solid var(--tatros-color-border-default);
+  border-radius: var(--tatros-radius-medium);
+  background: var(--tatros-color-surface-default);
+  color: var(--navigation-text);
+  font-weight: var(--tatros-font-weight-semibold);
+  line-height: 1;
+}
+
+.navigation__menu-toggle:hover {
+  border-color: var(--tatros-color-border-strong);
+  background: var(--tatros-color-background-subtle);
+}
+
+.navigation__menu-icon {
+  position: relative;
+  display: block;
+  inline-size: 1.5rem;
+  block-size: 1.125rem;
+}
+
+.navigation__menu-icon-line {
+  position: absolute;
+  inset-inline: 0;
+  display: block;
+  block-size: 0.125rem;
+  border-radius: var(--tatros-radius-full);
+  background: currentColor;
+  transform-origin: center;
+  transition:
+    inset-block-start var(--tatros-motion-duration-standard)
+      var(--tatros-motion-easing-standard),
+    opacity var(--tatros-motion-duration-fast)
+      var(--tatros-motion-easing-standard),
+    transform var(--tatros-motion-duration-standard)
+      var(--tatros-motion-easing-standard);
+}
+
+.navigation__menu-icon-line:nth-child(1) {
+  inset-block-start: 0;
+}
+
+.navigation__menu-icon-line:nth-child(2) {
+  inset-block-start: 0.5rem;
+}
+
+.navigation__menu-icon-line:nth-child(3) {
+  inset-block-start: 1rem;
+}
+
+.navigation.is-menu-open .navigation__menu-icon-line:nth-child(1) {
+  inset-block-start: 0.5rem;
+  transform: rotate(45deg);
+}
+
+.navigation.is-menu-open .navigation__menu-icon-line:nth-child(2) {
+  opacity: 0;
+}
+
+.navigation.is-menu-open .navigation__menu-icon-line:nth-child(3) {
+  inset-block-start: 0.5rem;
+  transform: rotate(-45deg);
+}
+
+/* ==========================================================================
+   Navigation links and primary action
+   ========================================================================== */
+
+.navigation__list,
+.navigation__submenu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navigation__link,
+.navigation__submenu-link,
+.navigation__cta {
+  text-decoration: none;
+}
+
+.navigation__link {
+  position: relative;
+  display: inline-flex;
+  min-block-size: var(--tatros-size-target-minimum);
+  align-items: center;
+  color: var(--navigation-muted);
+  font-size: var(--tatros-font-size-label);
+  font-weight: var(--tatros-font-weight-medium);
+}
+
+.navigation__link:visited {
+  color: var(--navigation-muted);
+}
+
+.navigation__link:hover,
+.navigation__link:active,
+.navigation__link[aria-current="page"] {
+  color: var(--navigation-text);
+}
+
+.navigation__link[aria-current="page"] {
+  font-weight: var(--tatros-font-weight-semibold);
+}
+
+.navigation__cta {
+  display: inline-flex;
+  min-block-size: var(--tatros-size-control-medium);
+  align-items: center;
+  justify-content: center;
+  padding-inline: var(--tatros-space-5);
+  border: var(--tatros-border-width-thin) solid
+    var(--tatros-color-action-primary);
+  border-radius: var(--tatros-radius-medium);
+  background: var(--tatros-color-action-primary);
+  color: var(--tatros-color-text-inverse);
+  font-size: var(--tatros-font-size-label);
+  font-weight: var(--tatros-font-weight-semibold);
+  line-height: 1;
+  transition:
+    background-color var(--tatros-motion-duration-fast)
+      var(--tatros-motion-easing-standard),
+    border-color var(--tatros-motion-duration-fast)
+      var(--tatros-motion-easing-standard),
+    transform var(--tatros-motion-duration-fast)
+      var(--tatros-motion-easing-standard);
+}
+
+.navigation__cta:visited {
+  color: var(--tatros-color-text-inverse);
+}
+
+.navigation__cta:hover {
+  border-color: var(--tatros-color-action-primary-hover);
+  background: var(--tatros-color-action-primary-hover);
+  color: var(--tatros-color-text-inverse);
+}
+
+.navigation__cta:active {
+  border-color: var(--tatros-color-action-primary-active);
+  background: var(--tatros-color-action-primary-active);
+  color: var(--tatros-color-text-inverse);
+  transform: translateY(1px);
+}
+
+/* ==========================================================================
+   Submenu controls
+   ========================================================================== */
+
+.navigation__item-row {
+  display: flex;
+  align-items: center;
+}
+
+.navigation__submenu-toggle {
+  display: inline-grid;
+  min-inline-size: var(--tatros-size-target-minimum);
+  min-block-size: var(--tatros-size-target-minimum);
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: var(--tatros-radius-small);
+  background: transparent;
+  color: var(--navigation-muted);
+}
+
+.navigation__submenu-toggle:hover {
+  background: var(--tatros-color-background-subtle);
+  color: var(--navigation-text);
+}
+
+.navigation__submenu-icon {
+  transition: transform var(--tatros-motion-duration-standard)
+    var(--tatros-motion-easing-standard);
+}
+
+.navigation__submenu-toggle[aria-expanded="true"] .navigation__submenu-icon {
+  transform: rotate(180deg);
+}
+
+.navigation__submenu-link {
+  display: flex;
+  min-block-size: var(--tatros-size-target-minimum);
+  align-items: center;
+  padding: var(--tatros-space-2) var(--tatros-space-4);
+  border-radius: var(--tatros-radius-small);
+  color: var(--navigation-muted);
+  font-size: var(--tatros-font-size-label);
+  font-weight: var(--tatros-font-weight-medium);
+  line-height: var(--tatros-line-height-label);
+}
+
+.navigation__submenu-link:visited {
+  color: var(--navigation-muted);
+}
+
+.navigation__submenu-link:hover,
+.navigation__submenu-link:active,
+.navigation__submenu-link[aria-current="page"] {
+  background: var(--tatros-color-action-subtle);
+  color: var(--navigation-text);
+}
+
+/* ==========================================================================
+   Tablet and mobile navigation: below 1200px
+   ========================================================================== */
+
+@media (max-width: 74.999rem) {
+  .navigation {
+    --navigation-height: 4.5rem;
+  }
+
+  .navigation__panel {
+    padding-block: var(--tatros-space-4);
+  }
+
+  .navigation__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--tatros-space-1);
+  }
+
+  .navigation__item-row {
+    inline-size: 100%;
+  }
+
+  .navigation__link {
+    flex: 1 1 auto;
+    padding-inline: var(--tatros-space-3);
+    font-size: 1rem;
+  }
+
+  .navigation__submenu-toggle {
+    flex: 0 0 var(--tatros-size-target-minimum);
+  }
+
+  .navigation__submenu {
+    display: grid;
+    grid-template-rows: 1fr;
+    padding-block-end: var(--tatros-space-2);
+    padding-inline-start: var(--tatros-space-3);
+  }
+
+  .navigation.navigation--enhanced .navigation__menu-toggle {
+    display: inline-flex;
+  }
+
+  .navigation.navigation--enhanced .navigation__panel {
+    position: fixed;
+    inset-block: 0;
+    inset-inline-end: 0;
+    z-index: var(--tatros-layer-overlay);
+    display: flex;
+    inline-size: min(100%, var(--navigation-panel-width));
+    block-size: 100dvh;
+    flex-direction: column;
+    gap: var(--tatros-space-6);
+    padding:
+      calc(var(--navigation-height) + var(--tatros-space-6))
+      var(--tatros-page-gutter)
+      var(--tatros-space-8);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: rgb(255 255 255 / 0.98);
+    box-shadow: var(--tatros-shadow-4);
+    visibility: hidden;
+    transform: translateX(100%);
+    transition:
+      visibility 0s linear var(--tatros-motion-duration-standard),
+      transform var(--tatros-motion-duration-standard)
+        var(--tatros-motion-easing-enter);
+  }
+
+  .navigation.navigation--enhanced.is-menu-open .navigation__panel {
+    visibility: visible;
+    transform: translateX(0);
+    transition-delay: 0s;
+  }
+
+  .navigation.navigation--enhanced .navigation__submenu {
+    grid-template-rows: 0fr;
+    padding-block-end: 0;
+    visibility: hidden;
+    transition:
+      grid-template-rows var(--tatros-motion-duration-standard)
+        var(--tatros-motion-easing-standard),
+      padding-block-end var(--tatros-motion-duration-standard)
+        var(--tatros-motion-easing-standard),
+      visibility 0s linear var(--tatros-motion-duration-standard);
+  }
+
+  .navigation.navigation--enhanced .navigation__submenu > li {
+    overflow: hidden;
+  }
+
+  .navigation.navigation--enhanced
+    .navigation__item.is-submenu-open
+    > .navigation__submenu {
+    grid-template-rows: 1fr;
+    padding-block-end: var(--tatros-space-2);
+    visibility: visible;
+    transition-delay: 0s;
+  }
+
+  .navigation__cta {
+    inline-size: 100%;
+    flex: 0 0 auto;
+  }
+
+  .navigation__overlay {
+    position: fixed;
+    inset: 0;
+    z-index: calc(var(--tatros-layer-overlay) - 1);
+    display: none;
+    inline-size: 100%;
+    block-size: 100%;
+    padding: 0;
+    border: 0;
+    background: rgb(8 13 25 / 0.58);
+    opacity: 0;
+    cursor: default;
+    transition: opacity var(--tatros-motion-duration-standard)
+      var(--tatros-motion-easing-standard);
+  }
+
+  .navigation.navigation--enhanced.is-menu-open .navigation__overlay {
+    display: block;
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   Mobile navigation: below 768px
+   ========================================================================== */
+
+@media (max-width: 47.999rem) {
+  .navigation {
+    --navigation-panel-width: 100%;
+  }
+
+  .navigation__menu-label {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .navigation.navigation--enhanced .navigation__panel {
+    box-shadow: none;
+  }
+
+  .navigation__overlay {
+    visibility: hidden;
+  }
+}
+
+/* ==========================================================================
+   Desktop navigation: 1200px and above
+   ========================================================================== */
+
+@media (min-width: 75rem) {
+  .navigation__panel {
+    display: flex;
+    min-inline-size: 0;
+    align-items: center;
+    justify-content: flex-end;
+    gap: clamp(var(--tatros-space-4), 2vw, var(--tatros-space-8));
+  }
+
+  .navigation__list {
+    display: flex;
+    min-inline-size: 0;
+    align-items: center;
+    gap: clamp(var(--tatros-space-2), 1vw, var(--tatros-space-4));
+  }
+
+  .navigation__item {
+    position: relative;
+  }
+
+  .navigation__link::after {
+    position: absolute;
+    inset-inline: 0;
+    inset-block-end: 0.25rem;
+    block-size: 0.125rem;
+    border-radius: var(--tatros-radius-full);
+    background: var(--tatros-color-action-primary);
+    content: "";
+    opacity: 0;
+    transform: scaleX(0.4);
+    transition:
+      opacity var(--tatros-motion-duration-fast)
+        var(--tatros-motion-easing-standard),
+      transform var(--tatros-motion-duration-fast)
+        var(--tatros-motion-easing-standard);
+  }
+
+  .navigation__link:hover::after,
+  .navigation__link[aria-current="page"]::after,
+  .navigation__item:focus-within > .navigation__item-row .navigation__link::after {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  .navigation__submenu-toggle {
+    min-inline-size: 2rem;
+    min-block-size: var(--tatros-size-target-minimum);
+    margin-inline-start: calc(var(--tatros-space-2) * -1);
+  }
+
+  .navigation__submenu {
+    position: absolute;
+    inset-block-start: calc(100% + var(--tatros-space-2));
+    inset-inline-start: 0;
+    z-index: var(--tatros-layer-dropdown);
+    inline-size: max-content;
+    min-inline-size: 15rem;
+    max-inline-size: min(22rem, calc(100vw - (2 * var(--tatros-page-gutter))));
+    padding: var(--tatros-space-2);
+    border: var(--tatros-border-width-thin) solid var(--navigation-border);
+    border-radius: var(--tatros-radius-large);
+    background: rgb(255 255 255 / 0.98);
+    box-shadow: var(--tatros-shadow-3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(calc(var(--tatros-space-2) * -1));
+    transition:
+      opacity var(--tatros-motion-duration-fast)
+        var(--tatros-motion-easing-standard),
+      transform var(--tatros-motion-duration-fast)
+        var(--tatros-motion-easing-standard),
+      visibility 0s linear var(--tatros-motion-duration-fast);
+  }
+
+  .navigation__item.is-submenu-open > .navigation__submenu,
+  .navigation__item:focus-within > .navigation__submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition-delay: 0s;
+  }
+
+  .navigation__overlay {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Optional pointer-hover enhancement
+   Explicit activation and keyboard access remain fully supported.
+   -------------------------------------------------------------------------- */
+
+@media (hover: hover) and (min-width: 75rem) {
+  .navigation__item--has-submenu:hover > .navigation__submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition-delay: 0s;
+  }
+}
+
+/* ==========================================================================
+   Body scroll lock
+   Applied by navigation.js while the tablet or mobile panel is open.
+   ========================================================================== */
+
+body.navigation-lock {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+/* ==========================================================================
+   Motion and forced-color preferences
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .navigation,
+  .navigation__skip-link,
+  .navigation__menu-icon-line,
+  .navigation__submenu-icon,
+  .navigation__cta,
+  .navigation__panel,
+  .navigation__submenu,
+  .navigation__overlay,
+  .navigation__link::after {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .navigation,
+  .navigation__menu-toggle,
+  .navigation__submenu,
+  .navigation__cta {
+    border-color: CanvasText;
+  }
+
+  .navigation__logo-mark,
+  .navigation__cta {
+    forced-color-adjust: none;
+    background: ButtonFace;
+    color: ButtonText;
+  }
+
+  .navigation__link[aria-current="page"] {
+    text-decoration: underline;
+    text-decoration-thickness: 0.125rem;
+  }
+}
