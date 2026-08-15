@@ -1,0 +1,46 @@
+/* ==========================================================================
+   Container Layout
+   Centered content boundaries with full-bleed escape support.
+   ========================================================================== */
+
+.l-container {
+  inline-size: min(
+    calc(100% - (2 * var(--tatros-page-gutter))),
+    var(--tatros-size-container-default)
+  );
+  margin-inline: auto;
+}
+
+.l-container--reading {
+  max-inline-size: var(--tatros-size-container-reading);
+}
+
+.l-container--wide {
+  inline-size: min(
+    calc(100% - (2 * var(--tatros-page-gutter))),
+    var(--tatros-size-container-wide)
+  );
+}
+
+.l-container--fluid {
+  inline-size: calc(100% - (2 * var(--tatros-page-gutter)));
+  max-inline-size: none;
+}
+
+/* --------------------------------------------------------------------------
+   Full-bleed child
+   Use inside a constrained container when a background or media region must
+   span the viewport. Inner meaningful content should use another container.
+   -------------------------------------------------------------------------- */
+
+.l-container__full-bleed {
+  inline-size: 100vw;
+  margin-inline: calc(50% - 50vw);
+}
+
+@supports (inline-size: 100dvw) {
+  .l-container__full-bleed {
+    inline-size: 100dvw;
+    margin-inline: calc(50% - 50dvw);
+  }
+}

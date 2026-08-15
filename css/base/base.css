@@ -1,0 +1,233 @@
+/* ==========================================================================
+   Document Foundation
+   Global element defaults. Component-specific presentation belongs elsewhere.
+   ========================================================================== */
+
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+  scroll-padding-block-start: var(--tatros-space-20);
+  background: var(--tatros-color-background-default);
+}
+
+body {
+  background: var(--tatros-color-background-default);
+  color: var(--tatros-color-text-primary);
+  font-family: var(--tatros-font-family-sans);
+  font-size: var(--tatros-font-size-body);
+  font-weight: var(--tatros-font-weight-regular);
+  line-height: var(--tatros-line-height-body);
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--tatros-color-selection-background);
+  color: var(--tatros-color-selection-text);
+}
+
+/* --------------------------------------------------------------------------
+   Typography hierarchy
+   -------------------------------------------------------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  max-inline-size: var(--tatros-size-measure-heading);
+  color: var(--tatros-color-text-primary);
+  font-weight: var(--tatros-font-weight-semibold);
+  line-height: var(--tatros-line-height-heading);
+  letter-spacing: var(--tatros-letter-spacing-tight);
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--tatros-font-size-heading-1);
+  line-height: var(--tatros-line-height-tight);
+}
+
+h2 {
+  font-size: var(--tatros-font-size-heading-2);
+}
+
+h3 {
+  font-size: var(--tatros-font-size-heading-3);
+}
+
+h4 {
+  font-size: var(--tatros-font-size-heading-4);
+}
+
+h5 {
+  font-size: var(--tatros-font-size-heading-5);
+}
+
+h6 {
+  font-size: var(--tatros-font-size-heading-6);
+}
+
+p,
+li,
+dd {
+  max-inline-size: var(--tatros-size-measure-body);
+}
+
+small {
+  font-size: var(--tatros-font-size-body-small);
+}
+
+strong,
+b {
+  font-weight: var(--tatros-font-weight-semibold);
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--tatros-font-family-mono);
+}
+
+pre {
+  max-inline-size: 100%;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+/* --------------------------------------------------------------------------
+   Links
+   -------------------------------------------------------------------------- */
+
+a {
+  color: var(--tatros-color-action-primary);
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+  text-decoration-skip-ink: auto;
+}
+
+a:visited {
+  color: var(--tatros-color-action-visited);
+}
+
+a:hover {
+  color: var(--tatros-color-action-primary-hover);
+  text-decoration-thickness: 0.12em;
+}
+
+a:active {
+  color: var(--tatros-color-action-primary-active);
+}
+
+/* --------------------------------------------------------------------------
+   Focus visibility
+   -------------------------------------------------------------------------- */
+
+:focus {
+  outline: var(--tatros-focus-ring-width) solid var(--tatros-color-focus-ring);
+  outline-offset: var(--tatros-focus-ring-offset);
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: var(--tatros-focus-ring-width) solid var(--tatros-color-focus-ring);
+  outline-offset: var(--tatros-focus-ring-offset);
+}
+
+/* --------------------------------------------------------------------------
+   Structural elements
+   -------------------------------------------------------------------------- */
+
+hr {
+  block-size: var(--tatros-border-width-thin);
+  margin-block: var(--tatros-space-8);
+  border: 0;
+  background: var(--tatros-color-border-default);
+}
+
+blockquote {
+  padding-inline-start: var(--tatros-space-6);
+  border-inline-start: var(--tatros-border-width-strong) solid
+    var(--tatros-color-border-strong);
+  color: var(--tatros-color-text-secondary);
+}
+
+abbr[title] {
+  text-decoration: underline dotted;
+  text-underline-offset: 0.15em;
+  cursor: help;
+}
+
+mark {
+  background: var(--tatros-color-status-warning-background);
+  color: var(--tatros-color-status-warning-text);
+}
+
+/* --------------------------------------------------------------------------
+   Form inheritance and disabled state
+   -------------------------------------------------------------------------- */
+
+::placeholder {
+  color: var(--tatros-color-text-muted);
+  opacity: 1;
+}
+
+:disabled,
+[aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
+/* --------------------------------------------------------------------------
+   User preferences and system modes
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (forced-colors: active) {
+  :focus-visible {
+    outline-color: Highlight;
+  }
+
+  a {
+    forced-color-adjust: auto;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Print foundation
+   -------------------------------------------------------------------------- */
+
+@media print {
+  html {
+    scroll-padding-block-start: 0;
+    background: #ffffff;
+  }
+
+  body {
+    background: #ffffff;
+    color: #000000;
+    font-size: 11pt;
+  }
+
+  a {
+    color: inherit;
+  }
+}

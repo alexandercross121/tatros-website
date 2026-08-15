@@ -1,0 +1,170 @@
+/* ==========================================================================
+   Grid Layout
+   Mobile-first 4 / 8 / 12-column layout primitives.
+   ========================================================================== */
+
+.l-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--tatros-grid-columns), minmax(0, 1fr));
+  gap: var(--tatros-grid-row-gap, var(--tatros-grid-gutter))
+    var(--tatros-grid-column-gap, var(--tatros-grid-gutter));
+}
+
+.l-grid > * {
+  min-inline-size: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Automatic content grids
+   These variants respond to available container width without page-specific
+   breakpoint rules.
+   -------------------------------------------------------------------------- */
+
+.l-grid--auto-small {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+}
+
+.l-grid--auto-medium {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+}
+
+.l-grid--auto-large {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
+}
+
+/* --------------------------------------------------------------------------
+   Gap modifiers
+   -------------------------------------------------------------------------- */
+
+.l-grid--gap-small {
+  --tatros-grid-row-gap: var(--tatros-space-4);
+  --tatros-grid-column-gap: var(--tatros-space-4);
+}
+
+.l-grid--gap-large {
+  --tatros-grid-row-gap: var(--tatros-space-8);
+  --tatros-grid-column-gap: var(--tatros-space-8);
+}
+
+.l-grid--row-gap-large {
+  --tatros-grid-row-gap: var(--tatros-space-12);
+}
+
+/* --------------------------------------------------------------------------
+   Base column spans: compact 4-column grid
+   -------------------------------------------------------------------------- */
+
+.l-grid__item--span-1 {
+  grid-column: span 1;
+}
+
+.l-grid__item--span-2 {
+  grid-column: span 2;
+}
+
+.l-grid__item--span-3 {
+  grid-column: span 3;
+}
+
+.l-grid__item--span-4,
+.l-grid__item--full {
+  grid-column: 1 / -1;
+}
+
+/* --------------------------------------------------------------------------
+   Medium column spans: 8-column grid
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 48rem) {
+  .l-grid__item--md-span-2 {
+    grid-column: span 2;
+  }
+
+  .l-grid__item--md-span-3 {
+    grid-column: span 3;
+  }
+
+  .l-grid__item--md-span-4 {
+    grid-column: span 4;
+  }
+
+  .l-grid__item--md-span-5 {
+    grid-column: span 5;
+  }
+
+  .l-grid__item--md-span-6 {
+    grid-column: span 6;
+  }
+
+  .l-grid__item--md-span-8,
+  .l-grid__item--md-full {
+    grid-column: 1 / -1;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Large column spans: 12-column grid
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 64rem) {
+  .l-grid__item--lg-span-2 {
+    grid-column: span 2;
+  }
+
+  .l-grid__item--lg-span-3 {
+    grid-column: span 3;
+  }
+
+  .l-grid__item--lg-span-4 {
+    grid-column: span 4;
+  }
+
+  .l-grid__item--lg-span-5 {
+    grid-column: span 5;
+  }
+
+  .l-grid__item--lg-span-6 {
+    grid-column: span 6;
+  }
+
+  .l-grid__item--lg-span-7 {
+    grid-column: span 7;
+  }
+
+  .l-grid__item--lg-span-8 {
+    grid-column: span 8;
+  }
+
+  .l-grid__item--lg-span-9 {
+    grid-column: span 9;
+  }
+
+  .l-grid__item--lg-span-10 {
+    grid-column: span 10;
+  }
+
+  .l-grid__item--lg-span-12,
+  .l-grid__item--lg-full {
+    grid-column: 1 / -1;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Alignment modifiers
+   -------------------------------------------------------------------------- */
+
+.l-grid--align-start {
+  align-items: start;
+}
+
+.l-grid--align-center {
+  align-items: center;
+}
+
+.l-grid--align-end {
+  align-items: end;
+}
+
+.l-grid--justify-center {
+  justify-items: center;
+}

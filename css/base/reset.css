@@ -1,0 +1,160 @@
+/* ==========================================================================
+   Modern Reset
+   Normalizes layout behavior while preserving accessible browser semantics.
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  hanging-punctuation: first last;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+body {
+  min-block-size: 100vh;
+}
+
+/* --------------------------------------------------------------------------
+   Lists
+   -------------------------------------------------------------------------- */
+
+ul[role="list"],
+ol[role="list"] {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* --------------------------------------------------------------------------
+   Media and embedded content
+   -------------------------------------------------------------------------- */
+
+img,
+picture,
+svg,
+video,
+canvas {
+  display: block;
+  max-inline-size: 100%;
+}
+
+img,
+picture,
+video,
+canvas {
+  block-size: auto;
+}
+
+svg {
+  fill: currentColor;
+}
+
+iframe {
+  max-inline-size: 100%;
+  border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Forms and interactive elements
+   -------------------------------------------------------------------------- */
+
+button,
+input,
+textarea,
+select {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+button:not(:disabled),
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled) {
+  cursor: pointer;
+}
+
+textarea {
+  resize: vertical;
+}
+
+fieldset {
+  min-inline-size: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Tables and text flow
+   -------------------------------------------------------------------------- */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th {
+  text-align: start;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+dd,
+figcaption {
+  overflow-wrap: break-word;
+}
+
+/* --------------------------------------------------------------------------
+   Hidden and disclosure states
+   -------------------------------------------------------------------------- */
+
+[hidden] {
+  display: none !important;
+}
+
+details > summary {
+  cursor: pointer;
+}

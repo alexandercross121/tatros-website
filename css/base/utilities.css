@@ -1,0 +1,152 @@
+/* ==========================================================================
+   Accessibility Utilities
+   Small, single-purpose helpers with the u- namespace.
+   ========================================================================== */
+
+.u-visually-hidden {
+  position: absolute !important;
+  inline-size: 1px !important;
+  block-size: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.u-visually-hidden--focusable:not(:focus, :focus-within) {
+  position: absolute !important;
+  inline-size: 1px !important;
+  block-size: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.u-skip-link {
+  position: fixed;
+  inset-block-start: var(--tatros-space-3);
+  inset-inline-start: var(--tatros-space-3);
+  z-index: var(--tatros-layer-toast);
+  padding: var(--tatros-space-3) var(--tatros-space-4);
+  border-radius: var(--tatros-radius-medium);
+  background: var(--tatros-color-surface-default);
+  color: var(--tatros-color-text-primary);
+  font-weight: var(--tatros-font-weight-semibold);
+  box-shadow: var(--tatros-shadow-3);
+  transform: translateY(calc(-100% - var(--tatros-space-8)));
+}
+
+.u-skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Flow and Alignment Utilities
+   ========================================================================== */
+
+.u-flow > * + * {
+  margin-block-start: var(--tatros-flow-space, var(--tatros-space-4));
+}
+
+.u-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--tatros-cluster-gap, var(--tatros-space-4));
+}
+
+.u-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--tatros-stack-gap, var(--tatros-space-4));
+}
+
+.u-center {
+  margin-inline: auto;
+}
+
+.u-align-start {
+  text-align: start;
+}
+
+.u-align-center {
+  text-align: center;
+}
+
+/* ==========================================================================
+   Width and Text Utilities
+   ========================================================================== */
+
+.u-full-width {
+  inline-size: 100%;
+}
+
+.u-measure {
+  max-inline-size: var(--tatros-size-measure-body);
+}
+
+.u-measure--heading {
+  max-inline-size: var(--tatros-size-measure-heading);
+}
+
+.u-text-secondary {
+  color: var(--tatros-color-text-secondary);
+}
+
+.u-text-muted {
+  color: var(--tatros-color-text-muted);
+}
+
+.u-text-inverse {
+  color: var(--tatros-color-text-inverse);
+}
+
+/* ==========================================================================
+   Surface Utilities
+   ========================================================================== */
+
+.u-surface-default {
+  background-color: var(--tatros-color-surface-default);
+  color: var(--tatros-color-text-primary);
+}
+
+.u-surface-subtle {
+  background-color: var(--tatros-color-surface-subtle);
+  color: var(--tatros-color-text-primary);
+}
+
+.u-surface-strong {
+  background-color: var(--tatros-color-surface-strong);
+  color: var(--tatros-color-text-inverse);
+}
+
+/* ==========================================================================
+   Responsive Media Utilities
+   ========================================================================== */
+
+.u-cover {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.u-contain {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: contain;
+}
+
+/* ==========================================================================
+   Print Utilities
+   ========================================================================== */
+
+@media print {
+  .u-print-hidden {
+    display: none !important;
+  }
+}
