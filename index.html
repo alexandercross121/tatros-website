@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tatros Card System</title>
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+    <!-- ====================================================================
+         Card system demonstration
+         ==================================================================== -->
+    <main class="card-showcase">
+      <div class="card-showcase__container">
+        <header class="card-showcase__header">
+          <h1 class="card-showcase__title">Tatros Card System</h1>
+          <p class="card-showcase__description">
+            Semantic, responsive card patterns for services, capabilities,
+            client evidence, people, testimonials, and business outcomes.
+          </p>
+        </header>
+
+        <ul class="card-grid card-grid--wide" role="list">
+          <!-- Service Card -->
+          <li>
+            <article class="card card--service">
+              <div class="card__header">
+                <svg class="card__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <path d="M12 3v3m0 12v3M3 12h3m12 0h3M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1m0-12.8-2.1 2.1m-8.6 8.6-2.1 2.1"></path>
+                </svg>
+                <span class="card__tag">Service</span>
+              </div>
+              <div class="card__body">
+                <h2 class="card__title">Artificial Intelligence</h2>
+                <p class="card__description">
+                  Apply responsible AI to products, workflows, and decisions
+                  with security and measurable value in mind.
+                </p>
+              </div>
+              <footer class="card__footer">
+                <a class="card__link" href="/services/artificial-intelligence/">
+                  Explore AI services
+                </a>
+              </footer>
+            </article>
+          </li>
+
+          <!-- Feature Card -->
+          <li>
+            <article class="card card--feature card--subtle">
+              <svg class="card__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12 3 4 7v5c0 4.8 3.2 7.7 8 9 4.8-1.3 8-4.2 8-9V7l-8-4Z"></path>
+                <path d="m9 12 2 2 4-5"></path>
+              </svg>
+              <div class="card__body">
+                <p class="card__eyebrow">Platform capability</p>
+                <h2 class="card__title">Secure by Design</h2>
+                <p class="card__description">
+                  Security, privacy, resilience, and maintainability inform the
+                  architecture from discovery through operations.
+                </p>
+              </div>
+              <footer class="card__footer">
+                <a class="card__link" href="/about/">Review our approach</a>
+              </footer>
+            </article>
+          </li>
+
+          <!-- Case Study Card -->
+          <li>
+            <article class="card card--case-study">
+              <figure class="card__media">
+                <div class="card-showcase__media-placeholder" aria-hidden="true">
+                  <svg class="card-showcase__media-icon" viewBox="0 0 24 24">
+                    <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                    <path d="M7 15l3-3 2 2 4-5 2 2"></path>
+                  </svg>
+                </div>
+              </figure>
+              <div class="card__body">
+                <div class="card__meta">
+                  <span>Case study</span>
+                  <span>Digital modernization</span>
+                </div>
+                <h2 class="card__title">Modernizing a Critical Service Platform</h2>
+                <p class="card__description">
+                  A representative pattern for explaining client context,
+                  delivery scope, and verified outcomes.
+                </p>
+              </div>
+              <footer class="card__footer">
+                <a class="card__link" href="/case-studies/">View case studies</a>
+              </footer>
+            </article>
+          </li>
+
+          <!-- Statistic Card -->
+          <li>
+            <article class="card card--statistic card--inverse">
+              <p class="card__eyebrow">Demonstration metric</p>
+              <div class="card__body">
+                <strong class="card__statistic-value">24/7</strong>
+                <span class="card__statistic-label">Operational visibility</span>
+                <span class="card__statistic-context">
+                  Example presentation only; production metrics require a
+                  verified source and measurement period.
+                </span>
+              </div>
+              <footer class="card__footer">
+                <a class="card__link" href="/services/it-support/">Explore IT support</a>
+              </footer>
+            </article>
+          </li>
+
+          <!-- Testimonial Card -->
+          <li>
+            <figure class="card card--testimonial">
+              <blockquote class="card__quote">
+                “This semantic pattern supports an approved client quotation
+                without relying on a carousel or decorative attribution.”
+              </blockquote>
+              <figcaption class="card__attribution">
+                <span class="card__avatar-placeholder" aria-hidden="true">CL</span>
+                <span>
+                  <cite class="card__person">Client leader</cite>
+                  <span class="card__role">Approved role and organization</span>
+                </span>
+              </figcaption>
+              <a class="card__link" href="/case-studies/">Read client outcomes</a>
+            </figure>
+          </li>
+
+          <!-- Team Member Card -->
+          <li>
+            <article class="card card--team">
+              <div class="card__avatar-placeholder" aria-hidden="true">TM</div>
+              <div class="card__body">
+                <h2 class="card__title">Team Member</h2>
+                <p class="card__meta">Technology leadership</p>
+                <p class="card__description">
+                  A reusable profile pattern for approved biographies,
+                  expertise, and professional responsibilities.
+                </p>
+              </div>
+              <footer class="card__footer">
+                <a class="card__link" href="/about/">View team profile</a>
+              </footer>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

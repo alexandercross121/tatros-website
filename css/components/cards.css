@@ -117,6 +117,11 @@
   transform: translateY(-0.25rem);
 }
 
+.card:active {
+  box-shadow: var(--card-shadow);
+  transform: translateY(-0.0625rem);
+}
+
 /* --------------------------------------------------------------------------
    Shared card anatomy
    -------------------------------------------------------------------------- */
@@ -199,6 +204,10 @@
 .card__link:hover {
   color: var(--card-accent-hover);
   text-decoration-thickness: 0.12em;
+}
+
+.card__link:active {
+  color: var(--tatros-color-action-primary-active, #172554);
 }
 
 .card__link:focus {
@@ -448,8 +457,10 @@ svg.card__icon {
 }
 
 .card--team .card__body,
-.card--team .card__actions {
+.card--team .card__actions,
+.card--team .card__footer {
   align-items: center;
+  justify-content: center;
 }
 
 .card--team .card__meta {
@@ -512,6 +523,20 @@ svg.card__icon {
   object-fit: cover;
 }
 
+.card__avatar-placeholder {
+  display: inline-grid;
+  inline-size: 5rem;
+  block-size: 5rem;
+  place-items: center;
+  margin-inline: auto;
+  border-radius: 50%;
+  background: var(--card-accent-subtle);
+  color: var(--card-current-accent);
+  font-size: 1.25rem;
+  font-weight: var(--tatros-font-weight-bold, 700);
+  letter-spacing: 0.04em;
+}
+
 .card__person {
   display: block;
   color: var(--card-current-text);
@@ -564,6 +589,70 @@ svg.card__icon {
 }
 
 /* ==========================================================================
+   Demonstration helpers
+   Scoped to the index.html card showcase and excluded from the component API.
+   ========================================================================== */
+
+.card-showcase,
+.card-showcase *,
+.card-showcase *::before,
+.card-showcase *::after {
+  box-sizing: border-box;
+}
+
+.card-showcase {
+  min-block-size: 100vh;
+  padding: clamp(3rem, 8vw, 7rem) clamp(1rem, 5vw, 4rem);
+  background: var(--tatros-color-background-subtle, #f7f9fc);
+  color: var(--card-text);
+  font-family: var(--card-font-family);
+}
+
+.card-showcase__container {
+  inline-size: min(100%, 78rem);
+  margin-inline: auto;
+}
+
+.card-showcase__header {
+  max-inline-size: 48rem;
+  margin-block-end: clamp(2.5rem, 6vw, 5rem);
+}
+
+.card-showcase__title {
+  margin: 0 0 var(--tatros-space-4, 1rem);
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.card-showcase__description {
+  margin: 0;
+  color: var(--card-text-secondary);
+  font-size: var(--tatros-font-size-body-large, 1.125rem);
+  line-height: 1.65;
+}
+
+.card-showcase__media-placeholder {
+  display: grid;
+  inline-size: 100%;
+  block-size: 100%;
+  place-items: center;
+  background:
+    linear-gradient(135deg, rgb(219 234 254 / 0.9), rgb(237 233 254 / 0.9));
+  color: var(--card-accent);
+}
+
+.card-showcase__media-icon {
+  inline-size: 3.5rem;
+  block-size: 3.5rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ==========================================================================
    Responsive horizontal layout
    Media and content stack on mobile and separate at tablet widths.
    ========================================================================== */
@@ -612,6 +701,7 @@ svg.card__icon {
 
   .card:hover,
   .card:focus-within,
+  .card:active,
   .card:hover::before,
   .card:focus-within::before,
   .card__link:hover::after,
