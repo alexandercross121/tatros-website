@@ -1,0 +1,694 @@
+/* ==========================================================================
+   Homepage section foundations
+   These patterns compose existing layout, Button, and Card system APIs.
+   ========================================================================== */
+
+.homepage-section {
+  padding-block: clamp(var(--tatros-space-20), 9vw, var(--tatros-space-32));
+}
+
+.homepage-section--subtle {
+  background: var(--tatros-color-background-subtle);
+}
+
+.homepage-section--strong {
+  background: var(--tatros-color-surface-strong);
+  color: var(--tatros-color-text-inverse);
+}
+
+.homepage-section__header {
+  display: grid;
+  max-inline-size: 48rem;
+  gap: var(--tatros-space-4);
+  margin-block-end: clamp(var(--tatros-space-10), 5vw, var(--tatros-space-16));
+}
+
+.homepage-section__header--center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.homepage-section__eyebrow {
+  margin: 0;
+  color: var(--tatros-color-action-primary);
+  font-size: var(--tatros-font-size-label);
+  font-weight: var(--tatros-font-weight-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.homepage-section--strong .homepage-section__eyebrow {
+  color: var(--tatros-color-blue-300);
+}
+
+.homepage-section__title {
+  max-inline-size: 20ch;
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.homepage-section__header--center .homepage-section__title {
+  margin-inline: auto;
+}
+
+.homepage-section--strong .homepage-section__title {
+  color: var(--tatros-color-text-inverse);
+}
+
+.homepage-section__description {
+  max-inline-size: 64ch;
+  margin: 0;
+  color: var(--tatros-color-text-secondary);
+  font-size: var(--tatros-font-size-body-large);
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+.homepage-section__header--center .homepage-section__description {
+  margin-inline: auto;
+}
+
+.homepage-section--strong .homepage-section__description {
+  color: var(--tatros-color-neutral-200);
+}
+
+/* ==========================================================================
+   Trusted By
+   Audience labels avoid unsupported client-logo or partnership claims.
+   ========================================================================== */
+
+.trust-bar {
+  padding-block: var(--tatros-space-10);
+  border-block: var(--tatros-border-width-thin) solid
+    var(--tatros-color-border-default);
+  background: var(--tatros-color-surface-default);
+}
+
+.trust-bar__layout {
+  display: grid;
+  gap: var(--tatros-space-6);
+}
+
+.trust-bar__title {
+  max-inline-size: none;
+  margin: 0;
+  color: var(--tatros-color-text-secondary);
+  font-size: var(--tatros-font-size-label);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.trust-bar__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--tatros-space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.trust-bar__item {
+  display: flex;
+  min-block-size: var(--tatros-size-target-minimum);
+  align-items: center;
+  gap: var(--tatros-space-3);
+  color: var(--tatros-color-text-secondary);
+  font-size: var(--tatros-font-size-label);
+  font-weight: var(--tatros-font-weight-semibold);
+}
+
+.trust-bar__mark {
+  display: inline-grid;
+  inline-size: 2rem;
+  block-size: 2rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: var(--tatros-radius-medium);
+  background: var(--tatros-color-action-subtle);
+  color: var(--tatros-color-action-primary);
+  font-size: var(--tatros-font-size-caption);
+}
+
+/* ==========================================================================
+   Why Choose Tatros
+   ========================================================================== */
+
+.value-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--tatros-space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.value-item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--tatros-space-4);
+  padding-block: var(--tatros-space-5);
+  border-block-start: var(--tatros-border-width-thin) solid
+    var(--tatros-color-border-default);
+}
+
+.value-item__number {
+  color: var(--tatros-color-action-primary);
+  font-family: var(--tatros-font-family-mono);
+  font-size: var(--tatros-font-size-label);
+  font-weight: var(--tatros-font-weight-semibold);
+}
+
+.value-item__content {
+  display: grid;
+  gap: var(--tatros-space-2);
+}
+
+.value-item__title {
+  max-inline-size: none;
+  margin: 0;
+  font-size: var(--tatros-font-size-heading-5);
+}
+
+.value-item__description {
+  margin: 0;
+  color: var(--tatros-color-text-secondary);
+  line-height: var(--tatros-line-height-body);
+}
+
+/* ==========================================================================
+   Industries
+   ========================================================================== */
+
+.industry-card__symbol {
+  display: inline-grid;
+  inline-size: 3rem;
+  block-size: 3rem;
+  place-items: center;
+  border-radius: var(--tatros-radius-large);
+  background: var(--tatros-color-action-subtle);
+  color: var(--tatros-color-action-primary);
+  font-size: var(--tatros-font-size-label);
+  font-weight: var(--tatros-font-weight-bold);
+}
+
+/* ==========================================================================
+   Featured Projects
+   ========================================================================== */
+
+.project-media {
+  display: grid;
+  inline-size: 100%;
+  block-size: 100%;
+  place-items: center;
+  background:
+    linear-gradient(135deg, rgb(219 234 254 / 0.95), rgb(237 233 254 / 0.95));
+  color: var(--tatros-color-action-primary);
+}
+
+.project-media__graphic {
+  inline-size: 4rem;
+  block-size: 4rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.project-note {
+  margin-block-start: var(--tatros-space-6);
+  color: var(--tatros-color-text-muted);
+  font-size: var(--tatros-font-size-caption);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   Process
+   ========================================================================== */
+
+.process-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: process-step;
+}
+
+.process-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: var(--tatros-space-4);
+  padding-block-end: var(--tatros-space-8);
+  counter-increment: process-step;
+}
+
+.process-step::before {
+  display: inline-grid;
+  inline-size: 3rem;
+  block-size: 3rem;
+  z-index: 1;
+  place-items: center;
+  border: var(--tatros-border-width-thin) solid var(--tatros-color-blue-300);
+  border-radius: 50%;
+  background: var(--tatros-color-surface-strong);
+  color: var(--tatros-color-blue-300);
+  content: counter(process-step, decimal-leading-zero);
+  font-family: var(--tatros-font-family-mono);
+  font-size: var(--tatros-font-size-caption);
+  font-weight: var(--tatros-font-weight-semibold);
+}
+
+.process-step:not(:last-child)::after {
+  position: absolute;
+  inset-block-start: 3rem;
+  inset-block-end: 0;
+  inset-inline-start: 1.5rem;
+  inline-size: var(--tatros-border-width-thin);
+  background: var(--tatros-color-neutral-700);
+  content: "";
+}
+
+.process-step__content {
+  display: grid;
+  gap: var(--tatros-space-2);
+  padding-block-start: var(--tatros-space-2);
+}
+
+.process-step__title {
+  max-inline-size: none;
+  margin: 0;
+  color: var(--tatros-color-text-inverse);
+  font-size: var(--tatros-font-size-heading-5);
+}
+
+.process-step__description {
+  margin: 0;
+  color: var(--tatros-color-neutral-200);
+  line-height: var(--tatros-line-height-body);
+}
+
+/* ==========================================================================
+   Statistics
+   ========================================================================== */
+
+.statistics-grid {
+  --card-grid-min: 13rem;
+}
+
+/* ==========================================================================
+   Testimonials
+   ========================================================================== */
+
+.testimonial-disclaimer {
+  margin-block-start: var(--tatros-space-6);
+  padding: var(--tatros-space-4);
+  border-inline-start: var(--tatros-border-width-strong) solid
+    var(--tatros-color-status-warning-text);
+  background: var(--tatros-color-status-warning-background);
+  color: var(--tatros-color-status-warning-text);
+  font-size: var(--tatros-font-size-caption);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   FAQ
+   Native details and summary provide keyboard behavior without JavaScript.
+   ========================================================================== */
+
+.faq-list {
+  display: grid;
+  max-inline-size: 56rem;
+  gap: var(--tatros-space-3);
+  margin-inline: auto;
+}
+
+.faq-item {
+  border: var(--tatros-border-width-thin) solid var(--tatros-color-border-default);
+  border-radius: var(--tatros-radius-large);
+  background: var(--tatros-color-surface-default);
+  transition:
+    border-color var(--tatros-motion-duration-fast)
+      var(--tatros-motion-easing-standard),
+    box-shadow var(--tatros-motion-duration-fast)
+      var(--tatros-motion-easing-standard);
+}
+
+.faq-item:hover,
+.faq-item:focus-within,
+.faq-item[open] {
+  border-color: var(--tatros-color-action-primary);
+  box-shadow: var(--tatros-shadow-1);
+}
+
+.faq-item__question {
+  display: flex;
+  min-block-size: 4rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--tatros-space-4);
+  padding: var(--tatros-space-5);
+  color: var(--tatros-color-text-primary);
+  font-weight: var(--tatros-font-weight-semibold);
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq-item__question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item__question::after {
+  inline-size: 0.75rem;
+  block-size: 0.75rem;
+  flex: 0 0 auto;
+  border-inline-end: 0.125rem solid currentColor;
+  border-block-end: 0.125rem solid currentColor;
+  content: "";
+  transform: rotate(45deg) translate(-0.15rem, -0.15rem);
+  transition: transform var(--tatros-motion-duration-fast)
+    var(--tatros-motion-easing-standard);
+}
+
+.faq-item[open] .faq-item__question::after {
+  transform: rotate(225deg) translate(-0.1rem, -0.1rem);
+}
+
+.faq-item__question:focus-visible {
+  outline: var(--tatros-focus-ring-width) solid var(--tatros-color-focus-ring);
+  outline-offset: var(--tatros-focus-ring-offset);
+}
+
+.faq-item__answer {
+  padding: 0 var(--tatros-space-5) var(--tatros-space-5);
+  color: var(--tatros-color-text-secondary);
+  line-height: var(--tatros-line-height-body);
+}
+
+.faq-item__answer p {
+  margin: 0;
+}
+
+/* ==========================================================================
+   Final CTA
+   ========================================================================== */
+
+.final-cta {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: clamp(var(--tatros-space-20), 9vw, var(--tatros-space-32));
+  background: linear-gradient(135deg, var(--tatros-color-blue-900), #312e81);
+  color: var(--tatros-color-text-inverse);
+}
+
+.final-cta::before {
+  position: absolute;
+  inset: -50%;
+  z-index: -1;
+  background: radial-gradient(circle, rgb(147 197 253 / 0.2), transparent 42%);
+  content: "";
+}
+
+.final-cta__layout {
+  display: grid;
+  gap: var(--tatros-space-8);
+  align-items: center;
+}
+
+.final-cta__content {
+  display: grid;
+  max-inline-size: 46rem;
+  gap: var(--tatros-space-4);
+}
+
+.final-cta__title {
+  max-inline-size: 18ch;
+  margin: 0;
+  color: var(--tatros-color-text-inverse);
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+.final-cta__description {
+  margin: 0;
+  color: var(--tatros-color-neutral-200);
+  font-size: var(--tatros-font-size-body-large);
+  line-height: 1.65;
+}
+
+.final-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--tatros-space-3);
+}
+
+.final-cta .button--outline {
+  --button-border-color: var(--tatros-color-neutral-0);
+  --button-border-color-hover: var(--tatros-color-neutral-0);
+  --button-border-color-active: var(--tatros-color-neutral-200);
+  --button-color: var(--tatros-color-neutral-0);
+  --button-color-hover: var(--tatros-color-neutral-950);
+  --button-color-active: var(--tatros-color-neutral-950);
+  --button-background-hover: var(--tatros-color-neutral-0);
+  --button-background-active: var(--tatros-color-neutral-200);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.site-footer {
+  padding-block: var(--tatros-space-16) var(--tatros-space-8);
+  background: var(--tatros-color-neutral-950);
+  color: var(--tatros-color-neutral-200);
+}
+
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--tatros-space-10);
+}
+
+.site-footer__brand {
+  display: grid;
+  max-inline-size: 24rem;
+  gap: var(--tatros-space-4);
+}
+
+.site-footer__logo {
+  inline-size: fit-content;
+  color: var(--tatros-color-text-inverse);
+  font-size: 1.5rem;
+  font-weight: var(--tatros-font-weight-bold);
+  text-decoration: none;
+}
+
+.site-footer__logo:visited {
+  color: var(--tatros-color-text-inverse);
+}
+
+.site-footer__description {
+  margin: 0;
+  color: var(--tatros-color-neutral-300);
+  line-height: var(--tatros-line-height-body);
+}
+
+.site-footer__navigation {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--tatros-space-8) var(--tatros-space-6);
+}
+
+.site-footer__group {
+  display: grid;
+  align-content: start;
+  gap: var(--tatros-space-3);
+}
+
+.site-footer__heading {
+  max-inline-size: none;
+  margin: 0 0 var(--tatros-space-2);
+  color: var(--tatros-color-text-inverse);
+  font-size: var(--tatros-font-size-label);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.site-footer__list {
+  display: grid;
+  gap: var(--tatros-space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-footer__link {
+  display: inline-flex;
+  min-block-size: var(--tatros-size-target-minimum);
+  align-items: center;
+  color: var(--tatros-color-neutral-300);
+  font-size: var(--tatros-font-size-label);
+  text-decoration: none;
+}
+
+.site-footer__link:visited {
+  color: var(--tatros-color-neutral-300);
+}
+
+.site-footer__link:hover {
+  color: var(--tatros-color-text-inverse);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.site-footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--tatros-space-4);
+  margin-block-start: var(--tatros-space-12);
+  padding-block-start: var(--tatros-space-6);
+  border-block-start: var(--tatros-border-width-thin) solid
+    var(--tatros-color-neutral-700);
+  color: var(--tatros-color-neutral-300);
+  font-size: var(--tatros-font-size-caption);
+}
+
+.site-footer__legal p {
+  margin: 0;
+}
+
+/* ==========================================================================
+   Tablet and desktop layouts
+   ========================================================================== */
+
+@media (min-width: 48rem) {
+  .trust-bar__layout {
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+  }
+
+  .trust-bar__list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .value-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--tatros-space-10);
+  }
+
+  .final-cta__layout {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .final-cta__actions {
+    justify-content: flex-end;
+  }
+
+  .site-footer__grid {
+    grid-template-columns: minmax(16rem, 0.8fr) minmax(0, 1.2fr);
+  }
+
+  .site-footer__navigation {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 75rem) {
+  .process-list {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: var(--tatros-space-5);
+  }
+
+  .process-step {
+    grid-template-columns: minmax(0, 1fr);
+    padding-block-end: 0;
+  }
+
+  .process-step:not(:last-child)::after {
+    inset-block: 1.5rem auto;
+    inset-inline: 3rem calc(var(--tatros-space-5) * -1);
+    inline-size: auto;
+    block-size: var(--tatros-border-width-thin);
+  }
+}
+
+/* ==========================================================================
+   Mobile refinements
+   ========================================================================== */
+
+@media (max-width: 47.999rem) {
+  .homepage-section__header--center {
+    text-align: start;
+  }
+
+  .homepage-section__header--center .homepage-section__title,
+  .homepage-section__header--center .homepage-section__description {
+    margin-inline: 0;
+  }
+
+  .final-cta__actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .final-cta__actions .button {
+    inline-size: 100%;
+  }
+}
+
+/* ==========================================================================
+   Accessibility preferences
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-item,
+  .faq-item__question::after {
+    transition-duration: 0.01ms;
+  }
+}
+
+@media (forced-colors: active) {
+  .trust-bar__mark,
+  .industry-card__symbol,
+  .project-media,
+  .process-step::before,
+  .faq-item,
+  .final-cta,
+  .site-footer {
+    border-color: CanvasText;
+    background: Canvas;
+    color: CanvasText;
+    forced-color-adjust: auto;
+  }
+}
+
+/* ==========================================================================
+   Print behavior
+   ========================================================================== */
+
+@media print {
+  .homepage-section,
+  .final-cta,
+  .site-footer {
+    padding-block: 2rem;
+    background: #ffffff;
+    color: #000000;
+  }
+
+  .process-step__title,
+  .final-cta__title,
+  .site-footer__heading,
+  .site-footer__logo {
+    color: #000000;
+  }
+}

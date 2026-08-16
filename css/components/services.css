@@ -1,0 +1,347 @@
+/* ==========================================================================
+   Services section foundation
+   ========================================================================== */
+
+.services {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: clamp(var(--tatros-space-20), 10vw, var(--tatros-space-32));
+  background:
+    radial-gradient(circle at 50% 0, rgb(219 234 254 / 0.5), transparent 34rem),
+    var(--tatros-color-background-default);
+}
+
+.services__header {
+  max-inline-size: 50rem;
+  margin-inline: auto;
+  margin-block-end: clamp(var(--tatros-space-12), 6vw, var(--tatros-space-20));
+  text-align: center;
+}
+
+.services__eyebrow {
+  margin-block-end: var(--tatros-space-4);
+  color: var(--tatros-color-blue-700);
+  font-size: var(--tatros-font-size-label);
+  font-weight: var(--tatros-font-weight-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.services__title {
+  max-inline-size: none;
+  margin-block-end: var(--tatros-space-5);
+  font-size: clamp(2.25rem, 4.5vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.services__introduction {
+  max-inline-size: 64ch;
+  margin-inline: auto;
+  color: var(--tatros-color-text-secondary);
+  font-size: var(--tatros-font-size-body-large);
+  text-wrap: pretty;
+}
+
+/* ==========================================================================
+   Responsive pillar grid: mobile 1, tablet 2, desktop 3
+   ========================================================================== */
+
+.services__pillars {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--tatros-space-6);
+}
+
+.service-pillar {
+  --service-pillar-accent: var(--tatros-color-blue-600);
+  --service-pillar-surface: var(--tatros-color-blue-50);
+
+  min-inline-size: 0;
+}
+
+.service-pillar--engineering {
+  --service-pillar-accent: #6d28d9;
+  --service-pillar-surface: #f5f3ff;
+}
+
+.service-pillar--consulting {
+  --service-pillar-accent: #0f766e;
+  --service-pillar-surface: #f0fdfa;
+}
+
+.service-pillar__header {
+  min-block-size: 7rem;
+  margin-block-end: var(--tatros-space-4);
+  padding: var(--tatros-space-5);
+  border: var(--tatros-border-width-thin) solid
+    color-mix(in srgb, var(--service-pillar-accent) 18%, var(--tatros-color-border-default));
+  border-radius: var(--tatros-radius-large);
+  background: var(--service-pillar-surface);
+}
+
+.service-pillar__number {
+  display: block;
+  margin-block-end: var(--tatros-space-2);
+  color: var(--service-pillar-accent);
+  font-family: var(--tatros-font-family-mono);
+  font-size: var(--tatros-font-size-caption);
+  font-weight: var(--tatros-font-weight-semibold);
+  letter-spacing: 0.08em;
+}
+
+.service-pillar__title {
+  max-inline-size: 15ch;
+  font-size: clamp(1.4rem, 2vw, 1.75rem);
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.service-pillar__cards {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--tatros-space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ==========================================================================
+   Individual service cards
+   ========================================================================== */
+
+.service-card {
+  position: relative;
+  display: grid;
+  min-block-size: 14.5rem;
+  grid-template-rows: auto auto 1fr auto;
+  align-content: start;
+  padding: var(--tatros-space-5);
+  overflow: hidden;
+  border: var(--tatros-border-width-thin) solid var(--tatros-color-border-default);
+  border-radius: var(--tatros-radius-large);
+  background: rgb(255 255 255 / 0.86);
+  box-shadow:
+    0 0.5rem 1.5rem rgb(15 23 42 / 0.045),
+    inset 0 1px 0 rgb(255 255 255 / 0.92);
+  transition:
+    border-color var(--tatros-motion-duration-standard)
+      var(--tatros-motion-easing-standard),
+    box-shadow var(--tatros-motion-duration-standard)
+      var(--tatros-motion-easing-standard),
+    transform var(--tatros-motion-duration-standard)
+      var(--tatros-motion-easing-standard);
+  -webkit-backdrop-filter: blur(0.75rem);
+  backdrop-filter: blur(0.75rem);
+}
+
+.service-card::before {
+  position: absolute;
+  inset-block-start: -3rem;
+  inset-inline-end: -3rem;
+  inline-size: 7rem;
+  block-size: 7rem;
+  border-radius: 50%;
+  background: var(--service-pillar-surface);
+  content: "";
+  opacity: 0.7;
+  transition: transform var(--tatros-motion-duration-deliberate)
+    var(--tatros-motion-easing-standard);
+}
+
+.service-card:hover,
+.service-card:focus-within {
+  border-color: color-mix(
+    in srgb,
+    var(--service-pillar-accent) 35%,
+    var(--tatros-color-border-default)
+  );
+  box-shadow:
+    0 1.25rem 2.75rem rgb(15 23 42 / 0.09),
+    inset 0 1px 0 rgb(255 255 255 / 0.95);
+  transform: translateY(-0.25rem);
+}
+
+.service-card:hover::before,
+.service-card:focus-within::before {
+  transform: scale(1.12);
+}
+
+.service-card__icon {
+  position: relative;
+  z-index: 1;
+  inline-size: 2.75rem;
+  block-size: 2.75rem;
+  margin-block-end: var(--tatros-space-4);
+  padding: var(--tatros-space-3);
+  border: var(--tatros-border-width-thin) solid
+    color-mix(in srgb, var(--service-pillar-accent) 24%, transparent);
+  border-radius: var(--tatros-radius-medium);
+  background: var(--service-pillar-surface);
+  color: var(--service-pillar-accent);
+}
+
+.service-card__title {
+  position: relative;
+  max-inline-size: none;
+  margin-block-end: var(--tatros-space-3);
+  font-size: 1.125rem;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+}
+
+.service-card__description {
+  position: relative;
+  margin-block-end: var(--tatros-space-5);
+  color: var(--tatros-color-text-secondary);
+  font-size: var(--tatros-font-size-body-small);
+  line-height: 1.55;
+}
+
+.service-card__link {
+  position: relative;
+  display: inline-flex;
+  inline-size: fit-content;
+  min-block-size: var(--tatros-size-target-minimum);
+  align-items: center;
+  gap: var(--tatros-space-2);
+  align-self: end;
+  color: var(--service-pillar-accent);
+  font-size: var(--tatros-font-size-label);
+  font-weight: var(--tatros-font-weight-semibold);
+  text-decoration-thickness: 0.08em;
+}
+
+.service-card__link:visited {
+  color: var(--service-pillar-accent);
+}
+
+.service-card__link::after {
+  content: "\2192";
+  font-size: 1.1em;
+  text-decoration: none;
+  transition: transform var(--tatros-motion-duration-fast)
+    var(--tatros-motion-easing-standard);
+}
+
+.service-card__link:hover::after,
+.service-card__link:focus-visible::after {
+  transform: translateX(0.2rem);
+}
+
+/* ==========================================================================
+   Tablet layout: 768px to 1199px
+   ========================================================================== */
+
+@media (min-width: 48rem) {
+  .services__pillars {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .service-pillar:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .service-pillar:last-child .service-pillar__cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ==========================================================================
+   Desktop layout: 1200px and above
+   ========================================================================== */
+
+@media (min-width: 75rem) {
+  .services__pillars {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .service-pillar:last-child {
+    grid-column: auto;
+  }
+
+  .service-pillar:last-child .service-pillar__cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ==========================================================================
+   Mobile refinements
+   ========================================================================== */
+
+@media (max-width: 47.999rem) {
+  .services__header {
+    text-align: start;
+  }
+
+  .services__introduction {
+    margin-inline: 0;
+  }
+
+  .service-pillar__header {
+    min-block-size: auto;
+  }
+}
+
+/* ==========================================================================
+   Accessibility preferences
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card,
+  .service-card::before,
+  .service-card__link::after {
+    transition-duration: 0.01ms;
+  }
+
+  .service-card:hover,
+  .service-card:focus-within,
+  .service-card:hover::before,
+  .service-card:focus-within::before,
+  .service-card__link:hover::after,
+  .service-card__link:focus-visible::after {
+    transform: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .service-pillar__header,
+  .service-card,
+  .service-card__icon {
+    border-color: CanvasText;
+    background: Canvas;
+    color: CanvasText;
+    box-shadow: none;
+  }
+
+  .service-card__link {
+    color: LinkText;
+  }
+}
+
+/* ==========================================================================
+   Print behavior
+   ========================================================================== */
+
+@media print {
+  .services {
+    padding-block: 2rem;
+    background: #ffffff;
+  }
+
+  .services__pillars {
+    display: block;
+  }
+
+  .service-pillar {
+    break-inside: avoid;
+    margin-block-end: 1.5rem;
+  }
+
+  .service-card {
+    min-block-size: auto;
+    box-shadow: none;
+  }
+}

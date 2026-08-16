@@ -1,0 +1,380 @@
+/* ==========================================================================
+   Button component tokens
+   Shared Tatros tokens are consumed with resilient fallbacks so this component
+   remains operable while the foundation stylesheet is unavailable.
+   ========================================================================== */
+
+:root {
+  --button-font-family: var(
+    --tatros-font-family-sans,
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif
+  );
+  --button-font-weight: var(--tatros-font-weight-semibold, 600);
+  --button-line-height: 1.2;
+  --button-radius: var(--tatros-radius-medium, 0.5rem);
+  --button-radius-icon: var(--tatros-radius-medium, 0.5rem);
+  --button-border-width: var(--tatros-border-width-thin, 0.0625rem);
+  --button-focus-color: var(--tatros-color-focus-ring, #2563eb);
+  --button-focus-width: var(--tatros-focus-ring-width, 0.1875rem);
+  --button-focus-offset: var(--tatros-focus-ring-offset, 0.1875rem);
+  --button-duration: var(--tatros-motion-duration-fast, 125ms);
+  --button-easing: var(
+    --tatros-motion-easing-standard,
+    cubic-bezier(0.2, 0, 0, 1)
+  );
+}
+
+/* ==========================================================================
+   Button foundation
+   Applies to buttons and links that represent an action or prominent route.
+   ========================================================================== */
+
+.button {
+  --button-height: var(--tatros-size-control-medium, 2.75rem);
+  --button-padding-inline: var(--tatros-space-5, 1.25rem);
+  --button-font-size: var(--tatros-font-size-label, 0.875rem);
+  --button-gap: var(--tatros-space-2, 0.5rem);
+  --button-background: var(--tatros-color-action-primary, #1d4ed8);
+  --button-background-hover: var(--tatros-color-action-primary-hover, #1e40af);
+  --button-background-active: var(--tatros-color-action-primary-active, #172554);
+  --button-border-color: var(--button-background);
+  --button-border-color-hover: var(--button-background-hover);
+  --button-border-color-active: var(--button-background-active);
+  --button-color: var(--tatros-color-text-inverse, #ffffff);
+  --button-color-hover: var(--button-color);
+  --button-color-active: var(--button-color);
+  --button-shadow: 0 0.5rem 1.25rem rgb(29 78 216 / 0.18);
+  --button-shadow-hover: 0 0.75rem 1.75rem rgb(29 78 216 / 0.24);
+
+  position: relative;
+  display: inline-flex;
+  min-inline-size: 0;
+  min-block-size: var(--button-height);
+  align-items: center;
+  justify-content: center;
+  gap: var(--button-gap);
+  padding-block: 0;
+  padding-inline: var(--button-padding-inline);
+  border: var(--button-border-width) solid var(--button-border-color);
+  border-radius: var(--button-radius);
+  background: var(--button-background);
+  color: var(--button-color);
+  font-family: var(--button-font-family);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  line-height: var(--button-line-height);
+  text-align: center;
+  text-decoration: none;
+  text-underline-offset: 0.2em;
+  box-shadow: var(--button-shadow);
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background-color var(--button-duration) var(--button-easing),
+    border-color var(--button-duration) var(--button-easing),
+    color var(--button-duration) var(--button-easing),
+    box-shadow var(--button-duration) var(--button-easing),
+    transform var(--button-duration) var(--button-easing);
+}
+
+.button:visited {
+  color: var(--button-color);
+}
+
+.button:hover:not(:disabled, [aria-disabled="true"], [aria-busy="true"]) {
+  border-color: var(--button-border-color-hover);
+  background: var(--button-background-hover);
+  color: var(--button-color-hover);
+  box-shadow: var(--button-shadow-hover);
+  transform: translateY(-0.125rem);
+}
+
+.button:focus {
+  outline: var(--button-focus-width) solid var(--button-focus-color);
+  outline-offset: var(--button-focus-offset);
+}
+
+.button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.button:focus-visible {
+  outline: var(--button-focus-width) solid var(--button-focus-color);
+  outline-offset: var(--button-focus-offset);
+}
+
+.button:active:not(:disabled, [aria-disabled="true"], [aria-busy="true"]) {
+  border-color: var(--button-border-color-active);
+  background: var(--button-background-active);
+  color: var(--button-color-active);
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Button variants
+   Each variant changes custom properties rather than repeating declarations.
+   ========================================================================== */
+
+.button--primary {
+  --button-background: var(--tatros-color-action-primary, #1d4ed8);
+  --button-background-hover: var(--tatros-color-action-primary-hover, #1e40af);
+  --button-background-active: var(--tatros-color-action-primary-active, #172554);
+  --button-color: var(--tatros-color-text-inverse, #ffffff);
+}
+
+.button--secondary {
+  --button-background: var(--tatros-color-neutral-900, #0f172a);
+  --button-background-hover: var(--tatros-color-neutral-700, #334155);
+  --button-background-active: var(--tatros-color-neutral-950, #080d19);
+  --button-color: var(--tatros-color-text-inverse, #ffffff);
+  --button-shadow: 0 0.5rem 1.25rem rgb(15 23 42 / 0.16);
+  --button-shadow-hover: 0 0.75rem 1.75rem rgb(15 23 42 / 0.22);
+}
+
+.button--ghost {
+  --button-background: transparent;
+  --button-background-hover: var(--tatros-color-background-subtle, #f7f9fc);
+  --button-background-active: var(--tatros-color-neutral-100, #eef2f7);
+  --button-border-color: transparent;
+  --button-border-color-hover: transparent;
+  --button-border-color-active: transparent;
+  --button-color: var(--tatros-color-text-primary, #0f172a);
+  --button-shadow: none;
+  --button-shadow-hover: none;
+}
+
+.button--outline {
+  --button-background: transparent;
+  --button-background-hover: var(--tatros-color-action-subtle, #eff6ff);
+  --button-background-active: var(--tatros-color-blue-100, #dbeafe);
+  --button-border-color: var(--tatros-color-action-primary, #1d4ed8);
+  --button-border-color-hover: var(--tatros-color-action-primary-hover, #1e40af);
+  --button-border-color-active: var(--tatros-color-action-primary-active, #172554);
+  --button-color: var(--tatros-color-action-primary, #1d4ed8);
+  --button-color-hover: var(--tatros-color-action-primary-hover, #1e40af);
+  --button-color-active: var(--tatros-color-action-primary-active, #172554);
+  --button-shadow: none;
+  --button-shadow-hover: 0 0.5rem 1.25rem rgb(29 78 216 / 0.1);
+}
+
+.button--text {
+  --button-height: auto;
+  --button-padding-inline: 0;
+  --button-background: transparent;
+  --button-background-hover: transparent;
+  --button-background-active: transparent;
+  --button-border-color: transparent;
+  --button-border-color-hover: transparent;
+  --button-border-color-active: transparent;
+  --button-color: var(--tatros-color-action-primary, #1d4ed8);
+  --button-color-hover: var(--tatros-color-action-primary-hover, #1e40af);
+  --button-color-active: var(--tatros-color-action-primary-active, #172554);
+  --button-shadow: none;
+  --button-shadow-hover: none;
+
+  min-block-size: var(--tatros-size-target-minimum, 2.75rem);
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+}
+
+.button--text:hover:not(:disabled, [aria-disabled="true"], [aria-busy="true"]) {
+  text-decoration-thickness: 0.12em;
+  transform: none;
+}
+
+/* ==========================================================================
+   Button sizes
+   ========================================================================== */
+
+.button--small {
+  --button-height: var(--tatros-size-control-small, 2.25rem);
+  --button-padding-inline: var(--tatros-space-4, 1rem);
+  --button-font-size: 0.8125rem;
+  --button-gap: var(--tatros-space-2, 0.5rem);
+}
+
+.button--medium {
+  --button-height: var(--tatros-size-control-medium, 2.75rem);
+  --button-padding-inline: var(--tatros-space-5, 1.25rem);
+  --button-font-size: var(--tatros-font-size-label, 0.875rem);
+}
+
+.button--large {
+  --button-height: var(--tatros-size-control-large, 3.25rem);
+  --button-padding-inline: var(--tatros-space-6, 1.5rem);
+  --button-font-size: 1rem;
+  --button-gap: var(--tatros-space-3, 0.75rem);
+}
+
+/* ==========================================================================
+   Icon buttons and button icons
+   ========================================================================== */
+
+.button--icon {
+  inline-size: var(--button-height);
+  min-inline-size: var(--button-height);
+  padding-inline: 0;
+  border-radius: var(--button-radius-icon);
+}
+
+.button__icon {
+  inline-size: 1.25em;
+  block-size: 1.25em;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ==========================================================================
+   Disabled state
+   Native disabled buttons are preferred. aria-disabled requires application
+   logic to suppress activation while preserving discoverability.
+   ========================================================================== */
+
+.button:disabled,
+.button[aria-disabled="true"] {
+  --button-background: var(--tatros-color-neutral-100, #eef2f7);
+  --button-border-color: var(--tatros-color-neutral-200, #d9e1ea);
+  --button-color: var(--tatros-color-neutral-500, #64748b);
+  --button-shadow: none;
+
+  cursor: not-allowed;
+  opacity: 1;
+  transform: none;
+}
+
+/* ==========================================================================
+   Loading state
+   aria-busy communicates state; disabled prevents duplicate submissions.
+   ========================================================================== */
+
+.button[aria-busy="true"] {
+  cursor: wait;
+  box-shadow: none;
+  transform: none;
+}
+
+.button[aria-busy="true"]::before {
+  inline-size: 1em;
+  block-size: 1em;
+  flex: 0 0 auto;
+  border: 0.125rem solid currentColor;
+  border-inline-end-color: transparent;
+  border-radius: 50%;
+  content: "";
+  animation: button-spinner 700ms linear infinite;
+}
+
+@keyframes button-spinner {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+/* ==========================================================================
+   Mobile behavior
+   ========================================================================== */
+
+@media (max-width: 47.999rem) {
+  .button--mobile-full {
+    inline-size: 100%;
+  }
+}
+
+/* ==========================================================================
+   User preferences and system colors
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition-duration: 0.01ms;
+  }
+
+  .button:hover:not(:disabled, [aria-disabled="true"], [aria-busy="true"]),
+  .button:active:not(:disabled, [aria-disabled="true"], [aria-busy="true"]) {
+    transform: none;
+  }
+
+  .button[aria-busy="true"]::before {
+    animation-duration: 1.4s;
+  }
+}
+
+@media (forced-colors: active) {
+  .button {
+    border-color: ButtonText;
+    background: ButtonFace;
+    color: ButtonText;
+    box-shadow: none;
+    forced-color-adjust: auto;
+  }
+
+  .button:focus-visible {
+    outline-color: Highlight;
+  }
+
+  .button:disabled,
+  .button[aria-disabled="true"] {
+    border-color: GrayText;
+    color: GrayText;
+  }
+}
+
+/* ==========================================================================
+   Demonstration layout
+   Documentation-only structure used by index.html; not required by buttons.
+   ========================================================================== */
+
+.button-showcase {
+  padding: clamp(3rem, 8vw, 6rem) clamp(1rem, 5vw, 4rem);
+  background: var(--tatros-color-background-default, #ffffff);
+  color: var(--tatros-color-text-primary, #0f172a);
+  font-family: var(--button-font-family);
+}
+
+.button-showcase__container {
+  inline-size: min(100%, 72rem);
+  margin-inline: auto;
+}
+
+.button-showcase__title {
+  margin: 0 0 0.75rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.1;
+}
+
+.button-showcase__description {
+  max-inline-size: 60ch;
+  margin: 0 0 3rem;
+  color: var(--tatros-color-text-secondary, #334155);
+  line-height: 1.6;
+}
+
+.button-showcase__group {
+  padding-block: 2rem;
+  border-block-start: var(--button-border-width) solid
+    var(--tatros-color-border-default, #d9e1ea);
+}
+
+.button-showcase__heading {
+  margin: 0 0 1.25rem;
+  font-size: 1.25rem;
+}
+
+.button-showcase__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}

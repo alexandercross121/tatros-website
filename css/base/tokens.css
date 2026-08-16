@@ -1,0 +1,233 @@
+/* ==========================================================================
+   Tatros Design Tokens
+   Primitive values and semantic aliases for the public website foundation.
+   Components should consume semantic tokens rather than primitive colors.
+   ========================================================================== */
+
+:root {
+  /* ------------------------------------------------------------------------
+     Color primitives
+     ------------------------------------------------------------------------ */
+  --tatros-color-neutral-0: #ffffff;
+  --tatros-color-neutral-50: #f7f9fc;
+  --tatros-color-neutral-100: #eef2f7;
+  --tatros-color-neutral-200: #d9e1ea;
+  --tatros-color-neutral-300: #b8c4d1;
+  --tatros-color-neutral-500: #64748b;
+  --tatros-color-neutral-700: #334155;
+  --tatros-color-neutral-900: #0f172a;
+  --tatros-color-neutral-950: #080d19;
+
+  --tatros-color-blue-50: #eff6ff;
+  --tatros-color-blue-100: #dbeafe;
+  --tatros-color-blue-300: #93c5fd;
+  --tatros-color-blue-500: #2563eb;
+  --tatros-color-blue-600: #1d4ed8;
+  --tatros-color-blue-700: #1e40af;
+  --tatros-color-blue-900: #172554;
+
+  --tatros-color-green-50: #ecfdf5;
+  --tatros-color-green-700: #047857;
+  --tatros-color-amber-50: #fffbeb;
+  --tatros-color-amber-800: #92400e;
+  --tatros-color-red-50: #fef2f2;
+  --tatros-color-red-700: #b91c1c;
+
+  /* ------------------------------------------------------------------------
+     Semantic colors
+     ------------------------------------------------------------------------ */
+  --tatros-color-background-default: var(--tatros-color-neutral-0);
+  --tatros-color-background-subtle: var(--tatros-color-neutral-50);
+  --tatros-color-surface-default: var(--tatros-color-neutral-0);
+  --tatros-color-surface-subtle: var(--tatros-color-neutral-50);
+  --tatros-color-surface-strong: var(--tatros-color-neutral-900);
+
+  --tatros-color-text-primary: var(--tatros-color-neutral-900);
+  --tatros-color-text-secondary: var(--tatros-color-neutral-700);
+  --tatros-color-text-muted: var(--tatros-color-neutral-500);
+  --tatros-color-text-inverse: var(--tatros-color-neutral-0);
+
+  --tatros-color-border-default: var(--tatros-color-neutral-200);
+  --tatros-color-border-strong: var(--tatros-color-neutral-300);
+
+  --tatros-color-action-primary: var(--tatros-color-blue-600);
+  --tatros-color-action-primary-hover: var(--tatros-color-blue-700);
+  --tatros-color-action-primary-active: var(--tatros-color-blue-900);
+  --tatros-color-action-subtle: var(--tatros-color-blue-50);
+  --tatros-color-action-visited: #5b21b6;
+
+  --tatros-color-focus-ring: var(--tatros-color-blue-500);
+  --tatros-color-selection-background: var(--tatros-color-blue-100);
+  --tatros-color-selection-text: var(--tatros-color-neutral-950);
+
+  --tatros-color-status-info-background: var(--tatros-color-blue-50);
+  --tatros-color-status-info-text: var(--tatros-color-blue-700);
+  --tatros-color-status-success-background: var(--tatros-color-green-50);
+  --tatros-color-status-success-text: var(--tatros-color-green-700);
+  --tatros-color-status-warning-background: var(--tatros-color-amber-50);
+  --tatros-color-status-warning-text: var(--tatros-color-amber-800);
+  --tatros-color-status-error-background: var(--tatros-color-red-50);
+  --tatros-color-status-error-text: var(--tatros-color-red-700);
+
+  /* ------------------------------------------------------------------------
+     Typography
+     ------------------------------------------------------------------------ */
+  --tatros-font-family-sans: Inter, ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --tatros-font-family-mono: ui-monospace, "Cascadia Code", "SFMono-Regular",
+    Consolas, "Liberation Mono", monospace;
+
+  --tatros-font-weight-regular: 400;
+  --tatros-font-weight-medium: 500;
+  --tatros-font-weight-semibold: 600;
+  --tatros-font-weight-bold: 700;
+
+  --tatros-font-size-caption: 0.75rem;
+  --tatros-font-size-label: 0.875rem;
+  --tatros-font-size-body-small: 0.875rem;
+  --tatros-font-size-body: clamp(1rem, 0.955rem + 0.227vw, 1.125rem);
+  --tatros-font-size-body-large: clamp(1.125rem, 1.08rem + 0.227vw, 1.25rem);
+  --tatros-font-size-heading-6: clamp(1rem, 0.955rem + 0.227vw, 1.125rem);
+  --tatros-font-size-heading-5: clamp(1.125rem, 1.034rem + 0.455vw, 1.375rem);
+  --tatros-font-size-heading-4: clamp(1.375rem, 1.239rem + 0.682vw, 1.75rem);
+  --tatros-font-size-heading-3: clamp(1.625rem, 1.443rem + 0.909vw, 2.125rem);
+  --tatros-font-size-heading-2: clamp(2rem, 1.636rem + 1.818vw, 3rem);
+  --tatros-font-size-heading-1: clamp(2.5rem, 1.955rem + 2.727vw, 4rem);
+  --tatros-font-size-display: clamp(2.75rem, 2.114rem + 3.182vw, 4.5rem);
+
+  --tatros-line-height-tight: 1.1;
+  --tatros-line-height-heading: 1.2;
+  --tatros-line-height-body: 1.6;
+  --tatros-line-height-label: 1.35;
+
+  --tatros-letter-spacing-tight: -0.02em;
+  --tatros-letter-spacing-normal: 0;
+  --tatros-letter-spacing-wide: 0.02em;
+
+  /* ------------------------------------------------------------------------
+     Spacing scale
+     ------------------------------------------------------------------------ */
+  --tatros-space-0: 0;
+  --tatros-space-1: 0.25rem;
+  --tatros-space-2: 0.5rem;
+  --tatros-space-3: 0.75rem;
+  --tatros-space-4: 1rem;
+  --tatros-space-5: 1.25rem;
+  --tatros-space-6: 1.5rem;
+  --tatros-space-8: 2rem;
+  --tatros-space-10: 2.5rem;
+  --tatros-space-12: 3rem;
+  --tatros-space-16: 4rem;
+  --tatros-space-20: 5rem;
+  --tatros-space-24: 6rem;
+  --tatros-space-32: 8rem;
+
+  /* ------------------------------------------------------------------------
+     Sizing and content measures
+     ------------------------------------------------------------------------ */
+  --tatros-size-control-small: 2.25rem;
+  --tatros-size-control-medium: 2.75rem;
+  --tatros-size-control-large: 3.25rem;
+  --tatros-size-target-minimum: 2.75rem;
+
+  --tatros-size-container-default: 80rem;
+  --tatros-size-container-reading: 47.5rem;
+  --tatros-size-container-wide: 90rem;
+  --tatros-size-measure-body: 70ch;
+  --tatros-size-measure-heading: 24ch;
+
+  /* ------------------------------------------------------------------------
+     Layout gutters and page margins
+     ------------------------------------------------------------------------ */
+  --tatros-grid-columns: 4;
+  --tatros-grid-gutter: var(--tatros-space-4);
+  --tatros-page-gutter: clamp(var(--tatros-space-4), 4vw, var(--tatros-space-8));
+
+  /* ------------------------------------------------------------------------
+     Borders, radii, and elevation
+     ------------------------------------------------------------------------ */
+  --tatros-border-width-thin: 0.0625rem;
+  --tatros-border-width-strong: 0.125rem;
+
+  --tatros-radius-none: 0;
+  --tatros-radius-small: 0.25rem;
+  --tatros-radius-medium: 0.5rem;
+  --tatros-radius-large: 0.75rem;
+  --tatros-radius-extra-large: 1.25rem;
+  --tatros-radius-full: 9999px;
+
+  --tatros-shadow-none: none;
+  --tatros-shadow-1: 0 1px 2px rgb(15 23 42 / 0.08);
+  --tatros-shadow-2: 0 4px 12px rgb(15 23 42 / 0.1);
+  --tatros-shadow-3: 0 12px 32px rgb(15 23 42 / 0.14);
+  --tatros-shadow-4: 0 24px 64px rgb(15 23 42 / 0.18);
+
+  /* ------------------------------------------------------------------------
+     Motion
+     ------------------------------------------------------------------------ */
+  --tatros-motion-duration-instant: 0ms;
+  --tatros-motion-duration-fast: 125ms;
+  --tatros-motion-duration-standard: 200ms;
+  --tatros-motion-duration-deliberate: 350ms;
+  --tatros-motion-easing-enter: cubic-bezier(0, 0, 0.2, 1);
+  --tatros-motion-easing-exit: cubic-bezier(0.4, 0, 1, 1);
+  --tatros-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+
+  /* ------------------------------------------------------------------------
+     Layer order
+     ------------------------------------------------------------------------ */
+  --tatros-layer-base: 0;
+  --tatros-layer-raised: 10;
+  --tatros-layer-sticky: 100;
+  --tatros-layer-dropdown: 200;
+  --tatros-layer-overlay: 300;
+  --tatros-layer-modal: 400;
+  --tatros-layer-toast: 500;
+
+  /* ------------------------------------------------------------------------
+     Focus treatment
+     ------------------------------------------------------------------------ */
+  --tatros-focus-ring-width: 0.1875rem;
+  --tatros-focus-ring-offset: 0.1875rem;
+}
+
+/* ========================================================================== 
+   Responsive foundation tokens
+   ========================================================================== */
+
+@media (min-width: 48rem) {
+  :root {
+    --tatros-grid-columns: 8;
+    --tatros-grid-gutter: var(--tatros-space-6);
+  }
+}
+
+@media (min-width: 64rem) {
+  :root {
+    --tatros-grid-columns: 12;
+  }
+}
+
+@media (min-width: 90rem) {
+  :root {
+    --tatros-grid-gutter: var(--tatros-space-8);
+  }
+}
+
+/* ========================================================================== 
+   User preference tokens
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --tatros-motion-duration-fast: 0ms;
+    --tatros-motion-duration-standard: 0ms;
+    --tatros-motion-duration-deliberate: 0ms;
+  }
+}
+
+@media (forced-colors: active) {
+  :root {
+    --tatros-color-focus-ring: Highlight;
+  }
+}

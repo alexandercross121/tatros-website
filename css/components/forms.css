@@ -1,0 +1,744 @@
+/* ==========================================================================
+   Form system tokens
+   Component aliases consume Tatros design tokens with resilient fallbacks.
+   ========================================================================== */
+
+:root {
+  --form-font-family: var(
+    --tatros-font-family-sans,
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif
+  );
+  --form-text: var(--tatros-color-text-primary, #0f172a);
+  --form-text-secondary: var(--tatros-color-text-secondary, #334155);
+  --form-text-muted: var(--tatros-color-text-muted, #64748b);
+  --form-surface: var(--tatros-color-surface-default, #ffffff);
+  --form-surface-subtle: var(--tatros-color-surface-subtle, #f7f9fc);
+  --form-border: var(--tatros-color-border-default, #d9e1ea);
+  --form-border-hover: var(--tatros-color-border-strong, #94a3b8);
+  --form-action: var(--tatros-color-action-primary, #1d4ed8);
+  --form-action-hover: var(--tatros-color-action-primary-hover, #1e40af);
+  --form-focus: var(--tatros-color-focus-ring, #2563eb);
+  --form-success: var(--tatros-color-status-success-text, #047857);
+  --form-success-surface: var(--tatros-color-status-success-background, #ecfdf5);
+  --form-warning: var(--tatros-color-status-warning-text, #92400e);
+  --form-warning-surface: var(--tatros-color-status-warning-background, #fffbeb);
+  --form-error: var(--tatros-color-status-error-text, #b91c1c);
+  --form-error-surface: var(--tatros-color-status-error-background, #fef2f2);
+  --form-disabled-surface: var(--tatros-color-neutral-100, #eef2f7);
+  --form-disabled-text: var(--tatros-color-neutral-500, #64748b);
+  --form-radius: var(--tatros-radius-medium, 0.5rem);
+  --form-border-width: var(--tatros-border-width-thin, 0.0625rem);
+  --form-control-height: var(--tatros-size-control-large, 3.25rem);
+  --form-target-size: var(--tatros-size-target-minimum, 2.75rem);
+  --form-focus-width: var(--tatros-focus-ring-width, 0.1875rem);
+  --form-focus-offset: var(--tatros-focus-ring-offset, 0.125rem);
+  --form-duration: var(--tatros-motion-duration-fast, 125ms);
+  --form-easing: var(
+    --tatros-motion-easing-standard,
+    cubic-bezier(0.2, 0, 0, 1)
+  );
+}
+
+/* ==========================================================================
+   Form layout
+   ========================================================================== */
+
+.form {
+  display: grid;
+  gap: var(--tatros-space-6, 1.5rem);
+  inline-size: 100%;
+  color: var(--form-text);
+  font-family: var(--form-font-family);
+}
+
+.form__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--tatros-space-6, 1.5rem);
+}
+
+.form__group {
+  display: grid;
+  gap: var(--tatros-space-4, 1rem);
+  min-inline-size: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.form__legend {
+  margin-block-end: var(--tatros-space-2, 0.5rem);
+  padding: 0;
+  color: var(--form-text);
+  font-size: 1rem;
+  font-weight: var(--tatros-font-weight-semibold, 600);
+  line-height: 1.4;
+}
+
+.form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--tatros-space-3, 0.75rem);
+}
+
+/* ==========================================================================
+   Field anatomy
+   ========================================================================== */
+
+.form-field {
+  --form-field-border: var(--form-border);
+  --form-field-focus: var(--form-focus);
+  --form-field-feedback: var(--form-text-secondary);
+  --form-field-feedback-surface: transparent;
+
+  position: relative;
+  display: grid;
+  min-inline-size: 0;
+  gap: var(--tatros-space-2, 0.5rem);
+}
+
+.form-field__label {
+  inline-size: fit-content;
+  color: var(--form-text);
+  font-size: var(--tatros-font-size-label, 0.875rem);
+  font-weight: var(--tatros-font-weight-semibold, 600);
+  line-height: 1.4;
+}
+
+.form-field__required {
+  color: var(--form-error);
+}
+
+.form-field__optional {
+  color: var(--form-text-muted);
+  font-weight: var(--tatros-font-weight-regular, 400);
+}
+
+.form-field__hint,
+.form-field__feedback {
+  margin: 0;
+  color: var(--form-text-muted);
+  font-size: var(--tatros-font-size-caption, 0.75rem);
+  line-height: 1.5;
+}
+
+.form-field__feedback {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--tatros-space-2, 0.5rem);
+  color: var(--form-field-feedback);
+}
+
+.form-field__feedback::before {
+  display: inline-grid;
+  inline-size: 1.125rem;
+  block-size: 1.125rem;
+  flex: 0 0 auto;
+  place-items: center;
+  margin-block-start: 0.0625rem;
+  border-radius: 50%;
+  background: var(--form-field-feedback-surface);
+  content: var(--form-feedback-symbol, "");
+  font-size: 0.6875rem;
+  font-weight: var(--tatros-font-weight-bold, 700);
+  line-height: 1;
+}
+
+/* ==========================================================================
+   Text controls
+   Supports text, email, telephone, password, search, and textarea controls.
+   ========================================================================== */
+
+.form-control {
+  inline-size: 100%;
+  min-inline-size: 0;
+  min-block-size: var(--form-control-height);
+  padding-block: var(--tatros-space-3, 0.75rem);
+  padding-inline: var(--tatros-space-4, 1rem);
+  border: var(--form-border-width) solid var(--form-field-border);
+  border-radius: var(--form-radius);
+  background: var(--form-surface);
+  color: var(--form-text);
+  font: inherit;
+  line-height: 1.5;
+  box-shadow: inset 0 1px 2px rgb(15 23 42 / 0.035);
+  transition:
+    background-color var(--form-duration) var(--form-easing),
+    border-color var(--form-duration) var(--form-easing),
+    box-shadow var(--form-duration) var(--form-easing);
+}
+
+.form-control::placeholder {
+  color: var(--form-text-muted);
+  opacity: 1;
+}
+
+.form-control:hover:not(:disabled, [readonly]) {
+  border-color: var(--form-border-hover);
+}
+
+.form-control:focus {
+  outline: var(--form-focus-width) solid var(--form-field-focus);
+  outline-offset: var(--form-focus-offset);
+  border-color: var(--form-field-focus);
+  box-shadow: 0 0 0 0.25rem rgb(37 99 235 / 0.1);
+}
+
+.form-control:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.form-control:focus-visible {
+  outline: var(--form-focus-width) solid var(--form-field-focus);
+  outline-offset: var(--form-focus-offset);
+}
+
+.form-control:disabled,
+.form-control[aria-disabled="true"] {
+  border-color: var(--form-border);
+  background: var(--form-disabled-surface);
+  color: var(--form-disabled-text);
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.form-control[readonly] {
+  background: var(--form-surface-subtle);
+}
+
+textarea.form-control {
+  min-block-size: 8rem;
+  resize: vertical;
+}
+
+input[type="search"].form-control {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input[type="search"].form-control::-webkit-search-cancel-button {
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   Input adornments and loading state
+   ========================================================================== */
+
+.form-field__control-wrap {
+  position: relative;
+  min-inline-size: 0;
+}
+
+.form-field__control-wrap .form-control {
+  padding-inline-end: calc(var(--tatros-space-10, 2.5rem) + var(--tatros-space-2, 0.5rem));
+}
+
+.form-field__adornment,
+.form-field__spinner {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-end: var(--tatros-space-4, 1rem);
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+  color: var(--form-text-muted);
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.form-field__adornment {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.form-field[aria-busy="true"] .form-field__spinner {
+  border: 0.125rem solid var(--form-text-muted);
+  border-inline-end-color: transparent;
+  border-radius: 50%;
+  animation: form-spinner 700ms linear infinite;
+}
+
+@keyframes form-spinner {
+  to {
+    transform: translateY(-50%) rotate(1turn);
+  }
+}
+
+/* ==========================================================================
+   Select control
+   The wrapper provides a decorative arrow without replacing native behavior.
+   ========================================================================== */
+
+.form-select {
+  position: relative;
+}
+
+.form-select::after {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-end: var(--tatros-space-4, 1rem);
+  inline-size: 0.5rem;
+  block-size: 0.5rem;
+  border-inline-end: 0.125rem solid var(--form-text-secondary);
+  border-block-end: 0.125rem solid var(--form-text-secondary);
+  content: "";
+  pointer-events: none;
+  transform: translateY(-70%) rotate(45deg);
+}
+
+.form-select .form-control {
+  padding-inline-end: var(--tatros-space-10, 2.5rem);
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.form-select .form-control:disabled {
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   Success, warning, and error states
+   State is communicated by text and symbols in addition to color.
+   ========================================================================== */
+
+.form-field--success {
+  --form-field-border: var(--form-success);
+  --form-field-focus: var(--form-success);
+  --form-field-feedback: var(--form-success);
+  --form-field-feedback-surface: var(--form-success-surface);
+  --form-feedback-symbol: "\2713";
+}
+
+.form-field--warning {
+  --form-field-border: var(--form-warning);
+  --form-field-focus: var(--form-warning);
+  --form-field-feedback: var(--form-warning);
+  --form-field-feedback-surface: var(--form-warning-surface);
+  --form-feedback-symbol: "!";
+}
+
+.form-field--error,
+.form-field:has(.form-control[aria-invalid="true"]) {
+  --form-field-border: var(--form-error);
+  --form-field-focus: var(--form-error);
+  --form-field-feedback: var(--form-error);
+  --form-field-feedback-surface: var(--form-error-surface);
+  --form-feedback-symbol: "!";
+}
+
+/* ==========================================================================
+   Checkbox and radio controls
+   Native inputs remain in the accessibility tree and keyboard sequence.
+   ========================================================================== */
+
+.form-choice {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--form-target-size) minmax(0, 1fr);
+  align-items: start;
+  gap: var(--tatros-space-2, 0.5rem);
+  min-inline-size: 0;
+  color: var(--form-text);
+  cursor: pointer;
+}
+
+.form-choice__input {
+  display: grid;
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+  place-content: center;
+  margin: calc((var(--form-target-size) - 1.25rem) / 2);
+  border: var(--form-border-width) solid var(--form-border-hover);
+  background: var(--form-surface);
+  color: var(--form-action);
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  transition:
+    background-color var(--form-duration) var(--form-easing),
+    border-color var(--form-duration) var(--form-easing),
+    box-shadow var(--form-duration) var(--form-easing);
+}
+
+.form-choice__input[type="checkbox"] {
+  border-radius: var(--tatros-radius-small, 0.25rem);
+}
+
+.form-choice__input[type="radio"] {
+  border-radius: 50%;
+}
+
+.form-choice__input::before {
+  inline-size: 0.65rem;
+  block-size: 0.65rem;
+  content: "";
+  transform: scale(0);
+  transition: transform var(--form-duration) var(--form-easing);
+}
+
+.form-choice__input[type="checkbox"]::before {
+  border-inline-end: 0.125rem solid var(--form-text-inverse, #ffffff);
+  border-block-end: 0.125rem solid var(--form-text-inverse, #ffffff);
+  transform: rotate(45deg) scale(0);
+  transform-origin: center;
+}
+
+.form-choice__input[type="radio"]::before {
+  border-radius: 50%;
+  background: var(--form-surface);
+}
+
+.form-choice__input:checked {
+  border-color: var(--form-action);
+  background: var(--form-action);
+}
+
+.form-choice__input[type="checkbox"]:checked::before {
+  transform: translateY(-0.08rem) rotate(45deg) scale(1);
+}
+
+.form-choice__input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+
+.form-choice__input:hover:not(:disabled) {
+  border-color: var(--form-action);
+}
+
+.form-choice__input:focus-visible {
+  outline: var(--form-focus-width) solid var(--form-focus);
+  outline-offset: var(--form-focus-offset);
+}
+
+.form-choice__input:disabled {
+  border-color: var(--form-border);
+  background: var(--form-disabled-surface);
+  cursor: not-allowed;
+}
+
+.form-choice:has(.form-choice__input:disabled) {
+  color: var(--form-disabled-text);
+  cursor: not-allowed;
+}
+
+.form-choice__content {
+  display: grid;
+  align-self: center;
+  gap: var(--tatros-space-1, 0.25rem);
+  min-block-size: var(--form-target-size);
+  align-content: center;
+}
+
+.form-choice__label {
+  font-size: var(--tatros-font-size-label, 0.875rem);
+  font-weight: var(--tatros-font-weight-medium, 500);
+  line-height: 1.4;
+}
+
+.form-choice__description {
+  color: var(--form-text-muted);
+  font-size: var(--tatros-font-size-caption, 0.75rem);
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   Switch control
+   Use a checkbox with role="switch" and a persistent text label.
+   ========================================================================== */
+
+.form-switch {
+  position: relative;
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  align-items: center;
+  gap: var(--tatros-space-3, 0.75rem);
+  min-block-size: var(--form-target-size);
+  cursor: pointer;
+}
+
+.form-switch__input {
+  position: relative;
+  inline-size: 3rem;
+  block-size: 1.75rem;
+  margin: 0;
+  border: var(--form-border-width) solid var(--form-border-hover);
+  border-radius: 9999px;
+  background: var(--form-disabled-surface);
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  transition:
+    background-color var(--form-duration) var(--form-easing),
+    border-color var(--form-duration) var(--form-easing);
+}
+
+.form-switch__input::before {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 0.2rem;
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+  border-radius: 50%;
+  background: var(--form-surface);
+  box-shadow: 0 0.125rem 0.35rem rgb(15 23 42 / 0.22);
+  content: "";
+  transform: translateY(-50%);
+  transition: transform var(--form-duration) var(--form-easing);
+}
+
+.form-switch__input:checked {
+  border-color: var(--form-action);
+  background: var(--form-action);
+}
+
+.form-switch__input:checked::before {
+  transform: translate(1.2rem, -50%);
+}
+
+.form-switch__input:focus-visible {
+  outline: var(--form-focus-width) solid var(--form-focus);
+  outline-offset: var(--form-focus-offset);
+}
+
+.form-switch__input:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.form-switch:has(.form-switch__input:disabled) {
+  color: var(--form-disabled-text);
+  cursor: not-allowed;
+}
+
+.form-switch__label {
+  font-size: var(--tatros-font-size-label, 0.875rem);
+  font-weight: var(--tatros-font-weight-medium, 500);
+}
+
+/* ==========================================================================
+   File upload
+   Uses the native file input and file-selector-button for broad accessibility.
+   ========================================================================== */
+
+.form-file {
+  padding: var(--tatros-space-3, 0.75rem);
+  border: var(--form-border-width) dashed var(--form-field-border);
+  border-radius: var(--form-radius);
+  background: var(--form-surface-subtle);
+}
+
+.form-file__input {
+  inline-size: 100%;
+  min-block-size: var(--form-target-size);
+  color: var(--form-text-secondary);
+  font: inherit;
+  font-size: var(--tatros-font-size-label, 0.875rem);
+  cursor: pointer;
+}
+
+.form-file__input::file-selector-button {
+  min-block-size: var(--form-target-size);
+  margin-inline-end: var(--tatros-space-3, 0.75rem);
+  padding-inline: var(--tatros-space-4, 1rem);
+  border: var(--form-border-width) solid var(--form-action);
+  border-radius: var(--form-radius);
+  background: var(--form-action);
+  color: var(--form-text-inverse, #ffffff);
+  font: inherit;
+  font-weight: var(--tatros-font-weight-semibold, 600);
+  cursor: pointer;
+  transition:
+    background-color var(--form-duration) var(--form-easing),
+    border-color var(--form-duration) var(--form-easing);
+}
+
+.form-file__input:hover:not(:disabled)::file-selector-button {
+  border-color: var(--form-action-hover);
+  background: var(--form-action-hover);
+}
+
+.form-file__input:focus-visible {
+  outline: var(--form-focus-width) solid var(--form-focus);
+  outline-offset: var(--form-focus-offset);
+}
+
+.form-file__input:disabled,
+.form-file__input:disabled::file-selector-button {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* ==========================================================================
+   Form action
+   Kept local so the Form System does not require the Button System.
+   ========================================================================== */
+
+.form__submit {
+  display: inline-flex;
+  min-block-size: var(--form-control-height);
+  align-items: center;
+  justify-content: center;
+  padding-inline: var(--tatros-space-6, 1.5rem);
+  border: var(--form-border-width) solid var(--form-action);
+  border-radius: var(--form-radius);
+  background: var(--form-action);
+  color: var(--form-text-inverse, #ffffff);
+  font: inherit;
+  font-weight: var(--tatros-font-weight-semibold, 600);
+  cursor: pointer;
+  transition:
+    background-color var(--form-duration) var(--form-easing),
+    border-color var(--form-duration) var(--form-easing),
+    transform var(--form-duration) var(--form-easing);
+}
+
+.form__submit:hover {
+  border-color: var(--form-action-hover);
+  background: var(--form-action-hover);
+  transform: translateY(-0.125rem);
+}
+
+.form__submit:focus-visible {
+  outline: var(--form-focus-width) solid var(--form-focus);
+  outline-offset: var(--form-focus-offset);
+}
+
+.form__submit:active {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Responsive layout
+   ========================================================================== */
+
+@media (min-width: 48rem) {
+  .form__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .form-field--full,
+  .form__group--full,
+  .form__actions {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 47.999rem) {
+  .form__actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .form__submit {
+    inline-size: 100%;
+  }
+}
+
+/* ==========================================================================
+   Reduced motion and forced-color support
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .form-control,
+  .form-choice__input,
+  .form-choice__input::before,
+  .form-switch__input,
+  .form-switch__input::before,
+  .form-file__input::file-selector-button,
+  .form__submit {
+    transition-duration: 0.01ms;
+  }
+
+  .form-field[aria-busy="true"] .form-field__spinner {
+    animation-duration: 1.4s;
+  }
+
+  .form__submit:hover,
+  .form__submit:active {
+    transform: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .form-control,
+  .form-choice__input,
+  .form-switch__input,
+  .form-file,
+  .form-file__input::file-selector-button,
+  .form__submit {
+    border-color: CanvasText;
+    background: Canvas;
+    color: CanvasText;
+    forced-color-adjust: auto;
+  }
+
+  .form-control:focus-visible,
+  .form-choice__input:focus-visible,
+  .form-switch__input:focus-visible,
+  .form-file__input:focus-visible,
+  .form__submit:focus-visible {
+    outline-color: Highlight;
+  }
+}
+
+/* ==========================================================================
+   Demonstration layout
+   Scoped to the form example appended to index.html.
+   ========================================================================== */
+
+.form-showcase,
+.form-showcase *,
+.form-showcase *::before,
+.form-showcase *::after {
+  box-sizing: border-box;
+}
+
+.form-showcase {
+  padding: clamp(3rem, 8vw, 7rem) clamp(1rem, 5vw, 4rem);
+  background: var(--form-surface);
+  color: var(--form-text);
+  font-family: var(--form-font-family);
+}
+
+.form-showcase__container {
+  inline-size: min(100%, 64rem);
+  margin-inline: auto;
+}
+
+.form-showcase__header {
+  max-inline-size: 46rem;
+  margin-block-end: clamp(2.5rem, 6vw, 4rem);
+}
+
+.form-showcase__title {
+  margin: 0 0 var(--tatros-space-4, 1rem);
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.form-showcase__description {
+  margin: 0;
+  color: var(--form-text-secondary);
+  font-size: var(--tatros-font-size-body-large, 1.125rem);
+  line-height: 1.65;
+}
+
+.form-showcase__panel {
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  border: var(--form-border-width) solid var(--form-border);
+  border-radius: var(--tatros-radius-large, 0.75rem);
+  background: var(--form-surface);
+  box-shadow: 0 1rem 3rem rgb(15 23 42 / 0.08);
+}
