@@ -1,0 +1,120 @@
+/* ========================================================================== 
+   Trusted By Section
+   Responsive logo-placeholder grid for approved client identities.
+   ========================================================================== */
+
+.trusted-by {
+  border-block: var(--tatros-border-width-thin) solid
+    var(--tatros-color-border-default);
+  background: var(--tatros-color-surface-default);
+  padding-block: clamp(var(--tatros-space-10), 6vw, var(--tatros-space-16));
+}
+
+.trusted-by__container {
+  display: grid;
+  gap: clamp(var(--tatros-space-8), 5vw, var(--tatros-space-12));
+}
+
+/* Section introduction */
+.trusted-by__header {
+  display: grid;
+  gap: var(--tatros-space-3);
+  max-inline-size: var(--tatros-size-measure-body);
+}
+
+.trusted-by__title {
+  margin: 0;
+  color: var(--tatros-color-text-primary);
+  font-size: var(--tatros-font-size-heading-3);
+  letter-spacing: var(--tatros-letter-spacing-tight);
+}
+
+.trusted-by__description {
+  margin: 0;
+  color: var(--tatros-color-text-secondary);
+  font-size: var(--tatros-font-size-body);
+}
+
+/* Logo placeholder grid */
+.trusted-by__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--tatros-space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.trusted-by__logo {
+  display: grid;
+  min-block-size: 5.5rem;
+  place-items: center;
+  border: var(--tatros-border-width-thin) solid
+    var(--tatros-color-border-default);
+  border-radius: var(--tatros-radius-large);
+  background: var(--tatros-color-surface-subtle);
+  color: var(--tatros-color-text-muted);
+  transition:
+    border-color var(--tatros-motion-duration-standard)
+      var(--tatros-motion-easing-standard),
+    box-shadow var(--tatros-motion-duration-standard)
+      var(--tatros-motion-easing-standard),
+    color var(--tatros-motion-duration-standard)
+      var(--tatros-motion-easing-standard),
+    transform var(--tatros-motion-duration-standard)
+      var(--tatros-motion-easing-standard);
+}
+
+.trusted-by__logo-mark {
+  font-size: var(--tatros-font-size-label);
+  font-weight: var(--tatros-font-weight-bold);
+  letter-spacing: 0.12em;
+}
+
+/* Hover enhancement is limited to devices that support precise hovering. */
+@media (hover: hover) and (pointer: fine) {
+  .trusted-by__logo:hover {
+    border-color: var(--tatros-color-border-strong);
+    box-shadow: var(--tatros-shadow-2);
+    color: var(--tatros-color-action-primary);
+    transform: translateY(-0.125rem);
+  }
+}
+
+/* Tablet layout */
+@media (min-width: 48rem) {
+  .trusted-by__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--tatros-space-4);
+  }
+}
+
+/* Desktop layout */
+@media (min-width: 75rem) {
+  .trusted-by__container {
+    grid-template-columns: minmax(18rem, 0.7fr) minmax(0, 1.3fr);
+    align-items: center;
+  }
+
+  .trusted-by__grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+/* Reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .trusted-by__logo {
+    transition: none;
+  }
+
+  .trusted-by__logo:hover {
+    transform: none;
+  }
+}
+
+/* High-contrast mode */
+@media (forced-colors: active) {
+  .trusted-by__logo {
+    border-color: CanvasText;
+  }
+}
