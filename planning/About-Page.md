@@ -2,7 +2,8 @@
 
 ## Objective
 
-Help visitors understand who Tatros is, what the company believes, and how it delivers technology solutions.
+Help visitors understand who Tatros is, what the company believes, and how it
+delivers technology solutions.
 
 The About page should build trust without repeating the homepage.
 

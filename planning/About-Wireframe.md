@@ -8,6 +8,10 @@ Who We Are
 
 ↓
 
+Our Story
+
+↓
+
 Mission
 
 ↓
@@ -28,4 +32,8 @@ Technology Expertise
 
 ↓
 
-Final CTA
+Why Choose Tatros
+
+↓
+
+Final Call To Action

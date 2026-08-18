@@ -4,24 +4,24 @@
 
 ↓
 
-2. Understands what Tatros does.
+1. Understands what Tatros does.
 
 ↓
 
-3. Visits About page.
+1. Visits About page.
 
 ↓
 
-4. Builds trust.
+1. Builds trust.
 
 ↓
 
-5. Visits Services.
+1. Visits Services.
 
 ↓
 
-6. Requests consultation.
+1. Requests consultation.
 
 ↓
 
-7. Becomes a client.
+1. Becomes a client.
