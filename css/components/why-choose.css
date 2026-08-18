@@ -5,7 +5,7 @@
 
 .why-choose {
   background: var(--tatros-color-background-default);
-  padding-block: clamp(var(--tatros-space-16), 8vw, var(--tatros-space-24));
+  padding-block: var(--tatros-space-section-block);
 }
 
 /* Section introduction */
@@ -28,7 +28,7 @@
 .why-choose__title {
   margin: 0;
   color: var(--tatros-color-text-primary);
-  font-size: var(--tatros-font-size-heading-2);
+  font-size: var(--tatros-font-size-section-heading);
   letter-spacing: var(--tatros-letter-spacing-tight);
 }
 
@@ -42,7 +42,7 @@
 .why-choose__grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: var(--tatros-space-6);
+  gap: var(--tatros-space-card-grid);
   margin: 0;
   padding: 0;
   list-style: none;

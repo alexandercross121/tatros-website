@@ -242,7 +242,7 @@
   min-block-size: var(--tatros-size-control-medium);
   align-items: center;
   justify-content: center;
-  padding-inline: var(--tatros-space-5);
+  padding-inline: var(--tatros-space-button-inline);
   border: var(--tatros-border-width-thin) solid
     var(--tatros-color-action-primary);
   border-radius: var(--tatros-radius-medium);

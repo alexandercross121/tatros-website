@@ -30,7 +30,7 @@
   --card-focus: var(--tatros-color-focus-ring, #2563eb);
   --card-radius: var(--tatros-radius-large, 0.75rem);
   --card-radius-media: var(--tatros-radius-medium, 0.5rem);
-  --card-padding: var(--tatros-space-6, 1.5rem);
+  --card-padding: var(--tatros-space-card-padding, 1.5rem);
   --card-gap: var(--tatros-space-4, 1rem);
   --card-border-width: var(--tatros-border-width-thin, 0.0625rem);
   --card-focus-width: var(--tatros-focus-ring-width, 0.1875rem);
@@ -56,7 +56,7 @@
     auto-fit,
     minmax(min(100%, var(--card-grid-min, 17rem)), 1fr)
   );
-  gap: var(--card-grid-gap, var(--tatros-space-6, 1.5rem));
+  gap: var(--card-grid-gap, var(--tatros-space-card-grid, 1.5rem));
   margin: 0;
   padding: 0;
   list-style: none;
@@ -110,14 +110,17 @@
     transform var(--card-duration) var(--card-easing);
 }
 
-.card:hover,
-.card:focus-within {
+.card--actionable:hover,
+.card--actionable:focus-within,
+.card--interactive:hover,
+.card--interactive:focus-within {
   border-color: var(--card-current-accent);
   box-shadow: var(--card-shadow-hover);
   transform: translateY(-0.25rem);
 }
 
-.card:active {
+.card--actionable:active,
+.card--interactive:active {
   box-shadow: var(--card-shadow);
   transform: translateY(-0.0625rem);
 }
@@ -614,10 +617,6 @@ svg.card__icon {
 }
 
 @media (max-width: 47.999rem) {
-  .card {
-    --card-padding: var(--tatros-space-5, 1.25rem);
-  }
-
   .card--spacious {
     --card-padding: var(--tatros-space-6, 1.5rem);
   }

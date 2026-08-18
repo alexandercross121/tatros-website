@@ -85,6 +85,7 @@
 
 .hero__actions {
   display: flex;
+  gap: var(--tatros-space-action-group);
 }
 
 .hero__action {
@@ -93,7 +94,7 @@
   align-items: center;
   justify-content: center;
   gap: var(--tatros-space-3);
-  padding-inline: var(--tatros-space-6);
+  padding-inline: var(--tatros-space-button-inline-large);
   border: var(--tatros-border-width-thin) solid var(--tatros-color-action-primary);
   border-radius: var(--tatros-radius-medium);
   background: var(--tatros-color-action-primary);

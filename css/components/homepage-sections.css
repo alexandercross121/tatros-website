@@ -4,7 +4,7 @@
    ========================================================================== */
 
 .homepage-section {
-  padding-block: clamp(var(--tatros-space-20), 9vw, var(--tatros-space-32));
+  padding-block: var(--tatros-space-section-block);
 }
 
 .homepage-section--subtle {
@@ -44,7 +44,7 @@
 .homepage-section__title {
   max-inline-size: 20ch;
   margin: 0;
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: var(--tatros-font-size-section-heading);
   line-height: 1.1;
   letter-spacing: -0.035em;
   overflow-wrap: break-word;
@@ -373,7 +373,7 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding-block: clamp(var(--tatros-space-20), 9vw, var(--tatros-space-32));
+  padding-block: var(--tatros-space-section-block);
   background: linear-gradient(135deg, var(--tatros-color-blue-900), #312e81);
   color: var(--tatros-color-text-inverse);
 }
@@ -419,7 +419,7 @@
 .final-cta__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--tatros-space-3);
+  gap: var(--tatros-space-action-group);
 }
 
 .final-cta .button--outline {

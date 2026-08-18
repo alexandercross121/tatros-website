@@ -94,6 +94,7 @@
   --tatros-font-size-heading-2: clamp(2rem, 1.636rem + 1.818vw, 3rem);
   --tatros-font-size-heading-1: clamp(2.5rem, 1.955rem + 2.727vw, 4rem);
   --tatros-font-size-display: clamp(2.75rem, 2.114rem + 3.182vw, 4.5rem);
+  --tatros-font-size-section-heading: clamp(2rem, 4vw, 3.5rem);
 
   --tatros-line-height-tight: 1.1;
   --tatros-line-height-heading: 1.2;
@@ -121,6 +122,20 @@
   --tatros-space-20: 5rem;
   --tatros-space-24: 6rem;
   --tatros-space-32: 8rem;
+
+  /* ------------------------------------------------------------------------
+     Shared component spacing
+     ------------------------------------------------------------------------ */
+  --tatros-space-section-block: clamp(
+    var(--tatros-space-20),
+    9vw,
+    var(--tatros-space-32)
+  );
+  --tatros-space-card-padding: var(--tatros-space-5);
+  --tatros-space-card-grid: var(--tatros-space-6);
+  --tatros-space-action-group: var(--tatros-space-4);
+  --tatros-space-button-inline: var(--tatros-space-5);
+  --tatros-space-button-inline-large: var(--tatros-space-6);
 
   /* ------------------------------------------------------------------------
      Sizing and content measures
@@ -199,6 +214,7 @@
   :root {
     --tatros-grid-columns: 8;
     --tatros-grid-gutter: var(--tatros-space-6);
+    --tatros-space-card-padding: var(--tatros-space-6);
   }
 }
 

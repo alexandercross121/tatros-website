@@ -33,6 +33,15 @@
     "textarea:not([disabled])",
     "[tabindex]:not([tabindex='-1'])",
   ].join(",");
+  const supportsInert = "inert" in HTMLElement.prototype;
+  const backgroundRegions = [
+    ...Array.from(document.body.children).filter(
+      (element) => element !== navigation,
+    ),
+    navigation.querySelector(".navigation__logo"),
+  ].filter(Boolean);
+  const backgroundState = new Map();
+  const fallbackFocusState = new Map();
 
   let menuOpen = false;
   let scrollFrame = 0;
@@ -116,6 +125,86 @@
   };
 
   /* ------------------------------------------------------------------------
+     Background isolation
+     Native inert removes background regions from focus, pointer interaction,
+     and the accessibility tree. The fallback reproduces those protections.
+     ------------------------------------------------------------------------ */
+
+  const setBackgroundInert = (active) => {
+    if (active) {
+      backgroundRegions.forEach((region) => {
+        if (backgroundState.has(region)) {
+          return;
+        }
+
+        backgroundState.set(region, {
+          hadInert: region.hasAttribute("inert"),
+          ariaHidden: region.getAttribute("aria-hidden"),
+          pointerEvents: region.style.pointerEvents,
+        });
+        region.setAttribute("inert", "");
+
+        if (!supportsInert) {
+          region.setAttribute("aria-hidden", "true");
+          region.style.pointerEvents = "none";
+
+          const focusableElements = [
+            ...(region.matches(focusableSelector) ? [region] : []),
+            ...region.querySelectorAll(focusableSelector),
+          ];
+
+          focusableElements.forEach((element) => {
+            if (!fallbackFocusState.has(element)) {
+              fallbackFocusState.set(
+                element,
+                element.getAttribute("tabindex"),
+              );
+              element.setAttribute("tabindex", "-1");
+            }
+          });
+        }
+      });
+
+      return;
+    }
+
+    backgroundRegions.forEach((region) => {
+      const previousState = backgroundState.get(region);
+
+      if (!previousState) {
+        return;
+      }
+
+      if (!previousState.hadInert) {
+        region.removeAttribute("inert");
+      }
+
+      if (!supportsInert) {
+        if (previousState.ariaHidden === null) {
+          region.removeAttribute("aria-hidden");
+        } else {
+          region.setAttribute("aria-hidden", previousState.ariaHidden);
+        }
+
+        region.style.pointerEvents = previousState.pointerEvents;
+      }
+    });
+
+    if (!supportsInert) {
+      fallbackFocusState.forEach((tabindex, element) => {
+        if (tabindex === null) {
+          element.removeAttribute("tabindex");
+        } else {
+          element.setAttribute("tabindex", tabindex);
+        }
+      });
+      fallbackFocusState.clear();
+    }
+
+    backgroundState.clear();
+  };
+
+  /* ------------------------------------------------------------------------
      Tablet and mobile panel
      ------------------------------------------------------------------------ */
 
@@ -128,6 +217,7 @@
     navigation.classList.add("is-menu-open");
     menuToggle.setAttribute("aria-expanded", "true");
     menuToggle.setAttribute("aria-label", "Close navigation menu");
+    setBackgroundInert(true);
     lockBodyScroll();
 
     const firstFocusable = menuPanel.querySelector(focusableSelector);
@@ -145,6 +235,7 @@
     menuToggle.setAttribute("aria-label", "Open navigation menu");
     overlay.setAttribute("tabindex", "-1");
     closeAllSubmenus();
+    setBackgroundInert(false);
     unlockBodyScroll();
 
     if (restoreFocus) {
