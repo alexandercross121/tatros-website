@@ -1,0 +1,90 @@
+/* ========================================================================== 
+   Why Choose Tatros
+   Section composition built with the shared card and button components.
+   ========================================================================== */
+
+.why-choose {
+  background: var(--tatros-color-background-default);
+  padding-block: clamp(var(--tatros-space-16), 8vw, var(--tatros-space-24));
+}
+
+/* Section introduction */
+.why-choose__header {
+  display: grid;
+  gap: var(--tatros-space-3);
+  max-inline-size: var(--tatros-size-measure-body);
+  margin-block-end: clamp(var(--tatros-space-8), 5vw, var(--tatros-space-12));
+}
+
+.why-choose__eyebrow {
+  margin: 0;
+  color: var(--tatros-color-action-primary);
+  font-size: var(--tatros-font-size-label);
+  font-weight: var(--tatros-font-weight-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.why-choose__title {
+  margin: 0;
+  color: var(--tatros-color-text-primary);
+  font-size: var(--tatros-font-size-heading-2);
+  letter-spacing: var(--tatros-letter-spacing-tight);
+}
+
+.why-choose__description {
+  margin: 0;
+  color: var(--tatros-color-text-secondary);
+  font-size: var(--tatros-font-size-body-large);
+}
+
+/* Feature card grid */
+.why-choose__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--tatros-space-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.why-choose__grid > li,
+.why-choose__card {
+  min-inline-size: 0;
+  block-size: 100%;
+}
+
+/* Icon placeholders inherit the shared card icon treatment. */
+.why-choose__icon {
+  margin-block-end: var(--tatros-space-5);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.why-choose__card .card__footer {
+  margin-block-start: auto;
+}
+
+/* Tablet layout */
+@media (min-width: 48rem) {
+  .why-choose__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Desktop layout */
+@media (min-width: 75rem) {
+  .why-choose__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* High-contrast icon support */
+@media (forced-colors: active) {
+  .why-choose__icon {
+    color: LinkText;
+  }
+}
