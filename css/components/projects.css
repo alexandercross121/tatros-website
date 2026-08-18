@@ -1,0 +1,45 @@
+/* ========================================================================== 
+   Featured Projects
+   Section-specific layout and placeholder artwork; card anatomy is shared.
+   ========================================================================== */
+
+.projects__header {
+  margin-block-end: clamp(var(--tatros-space-8), 5vw, var(--tatros-space-12));
+}
+
+.projects__grid {
+  --card-grid-min: 100%;
+}
+
+.projects__media {
+  border: var(--tatros-border-width-thin) solid var(--tatros-color-border-default);
+  background: var(--tatros-color-action-subtle);
+}
+
+.projects__graphic {
+  inline-size: 100%;
+  block-size: 100%;
+  color: var(--tatros-color-action-primary);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media (min-width: 48rem) {
+  .projects__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (forced-colors: active) {
+  .projects__media {
+    border-color: CanvasText;
+    background: Canvas;
+  }
+
+  .projects__graphic {
+    color: CanvasText;
+  }
+}
