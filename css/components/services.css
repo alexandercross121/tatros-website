@@ -34,6 +34,7 @@
   font-size: clamp(2.25rem, 4.5vw, 4rem);
   line-height: 1.08;
   letter-spacing: -0.035em;
+  overflow-wrap: break-word;
   text-wrap: balance;
 }
 
@@ -42,6 +43,7 @@
   margin-inline: auto;
   color: var(--tatros-color-text-secondary);
   font-size: var(--tatros-font-size-body-large);
+  overflow-wrap: break-word;
   text-wrap: pretty;
 }
 
@@ -76,6 +78,8 @@
   min-block-size: 7rem;
   margin-block-end: var(--tatros-space-4);
   padding: var(--tatros-space-5);
+  border: var(--tatros-border-width-thin) solid
+    var(--tatros-color-border-default);
   border: var(--tatros-border-width-thin) solid
     color-mix(in srgb, var(--service-pillar-accent) 18%, var(--tatros-color-border-default));
   border-radius: var(--tatros-radius-large);
@@ -153,6 +157,7 @@
 
 .service-card:hover,
 .service-card:focus-within {
+  border-color: var(--service-pillar-accent);
   border-color: color-mix(
     in srgb,
     var(--service-pillar-accent) 35%,
@@ -176,6 +181,7 @@
   block-size: 2.75rem;
   margin-block-end: var(--tatros-space-4);
   padding: var(--tatros-space-3);
+  border: var(--tatros-border-width-thin) solid var(--service-pillar-accent);
   border: var(--tatros-border-width-thin) solid
     color-mix(in srgb, var(--service-pillar-accent) 24%, transparent);
   border-radius: var(--tatros-radius-medium);
@@ -203,6 +209,7 @@
 .service-card__link {
   position: relative;
   display: inline-flex;
+  inline-size: auto;
   inline-size: fit-content;
   min-block-size: var(--tatros-size-target-minimum);
   align-items: center;

@@ -386,6 +386,7 @@
     z-index: var(--tatros-layer-overlay);
     display: flex;
     inline-size: min(100%, var(--navigation-panel-width));
+    block-size: 100vh;
     block-size: 100dvh;
     flex-direction: column;
     gap: var(--tatros-space-6);

@@ -1,0 +1,105 @@
+/* ========================================================================== 
+   Our Process
+   Mobile-first connected timeline.
+   ========================================================================== */
+
+.process__timeline {
+  --process-gap: var(--tatros-space-8);
+
+  display: grid;
+  gap: var(--process-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.process__step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: var(--tatros-space-4);
+  min-inline-size: 0;
+}
+
+.process__step:not(:last-child)::after {
+  position: absolute;
+  inset-block: 3rem calc(var(--process-gap) * -1);
+  inset-inline-start: calc(1.5rem - (var(--tatros-border-width-thin) / 2));
+  inline-size: var(--tatros-border-width-thin);
+  background: var(--tatros-color-neutral-700);
+  content: "";
+}
+
+.process__number {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  inline-size: 3rem;
+  block-size: 3rem;
+  place-items: center;
+  border: var(--tatros-border-width-thin) solid var(--tatros-color-blue-300);
+  border-radius: var(--tatros-radius-full);
+  background: var(--tatros-color-surface-strong);
+  color: var(--tatros-color-blue-300);
+  font-family: var(--tatros-font-family-mono);
+  font-size: var(--tatros-font-size-caption);
+  font-weight: var(--tatros-font-weight-semibold);
+  line-height: 1;
+}
+
+.process__content {
+  display: grid;
+  align-content: start;
+  gap: var(--tatros-space-2);
+  padding-block-start: var(--tatros-space-2);
+}
+
+.process__title {
+  max-inline-size: none;
+  margin: 0;
+  color: var(--tatros-color-text-inverse);
+  font-size: var(--tatros-font-size-heading-5);
+}
+
+.process__description {
+  margin: 0;
+  color: var(--tatros-color-neutral-200);
+  font-size: var(--tatros-font-size-body-small);
+  line-height: var(--tatros-line-height-body);
+}
+
+@media (min-width: 64rem) {
+  .process__timeline {
+    --process-gap: var(--tatros-space-5);
+
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .process__step {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--tatros-space-5);
+  }
+
+  .process__step:not(:last-child)::after {
+    inset-block: calc(1.5rem - (var(--tatros-border-width-thin) / 2)) auto;
+    inset-inline: 3rem calc(var(--process-gap) * -1);
+    inline-size: auto;
+    block-size: var(--tatros-border-width-thin);
+  }
+
+  .process__content {
+    padding-block-start: 0;
+  }
+}
+
+@media (forced-colors: active) {
+  .process__number {
+    border-color: CanvasText;
+    background: Canvas;
+    color: CanvasText;
+  }
+
+  .process__step:not(:last-child)::after {
+    background: CanvasText;
+  }
+}

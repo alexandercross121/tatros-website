@@ -47,6 +47,7 @@
   font-size: clamp(2rem, 4vw, 3.5rem);
   line-height: 1.1;
   letter-spacing: -0.035em;
+  overflow-wrap: break-word;
   text-wrap: balance;
 }
 
@@ -64,6 +65,7 @@
   color: var(--tatros-color-text-secondary);
   font-size: var(--tatros-font-size-body-large);
   line-height: 1.65;
+  overflow-wrap: break-word;
   text-wrap: pretty;
 }
 
@@ -192,37 +194,6 @@
   color: var(--tatros-color-action-primary);
   font-size: var(--tatros-font-size-label);
   font-weight: var(--tatros-font-weight-bold);
-}
-
-/* ==========================================================================
-   Featured Projects
-   ========================================================================== */
-
-.project-media {
-  display: grid;
-  inline-size: 100%;
-  block-size: 100%;
-  place-items: center;
-  background:
-    linear-gradient(135deg, rgb(219 234 254 / 0.95), rgb(237 233 254 / 0.95));
-  color: var(--tatros-color-action-primary);
-}
-
-.project-media__graphic {
-  inline-size: 4rem;
-  block-size: 4rem;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.4;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.project-note {
-  margin-block-start: var(--tatros-space-6);
-  color: var(--tatros-color-text-muted);
-  font-size: var(--tatros-font-size-caption);
-  line-height: 1.5;
 }
 
 /* ==========================================================================
@@ -434,6 +405,7 @@
   font-size: clamp(2.25rem, 5vw, 4rem);
   line-height: 1.08;
   letter-spacing: -0.04em;
+  overflow-wrap: break-word;
   text-wrap: balance;
 }
 
@@ -484,6 +456,7 @@
 }
 
 .site-footer__logo {
+  inline-size: auto;
   inline-size: fit-content;
   color: var(--tatros-color-text-inverse);
   font-size: 1.5rem;
@@ -660,7 +633,6 @@
 @media (forced-colors: active) {
   .trust-bar__mark,
   .industry-card__symbol,
-  .project-media,
   .process-step::before,
   .faq-item,
   .final-cta,

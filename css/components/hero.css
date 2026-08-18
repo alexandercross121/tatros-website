@@ -9,7 +9,9 @@
   --hero-color-violet: #7c3aed;
   position: relative;
   isolation: isolate;
+  min-block-size: 52rem;
   min-block-size: max(52rem, calc(100svh - 5rem));
+  overflow: hidden;
   overflow: clip;
   background:
     radial-gradient(circle at 14% 22%, rgb(219 234 254 / 0.72), transparent 32rem),
@@ -59,6 +61,7 @@
   font-size: clamp(3rem, 7vw, 6rem);
   line-height: 0.98;
   letter-spacing: -0.05em;
+  overflow-wrap: break-word;
   text-wrap: balance;
 }
 
@@ -76,6 +79,7 @@
   color: var(--tatros-color-text-secondary);
   font-size: var(--tatros-font-size-body-large);
   line-height: var(--tatros-line-height-body);
+  overflow-wrap: break-word;
   text-wrap: pretty;
 }
 
@@ -194,13 +198,6 @@
   box-shadow: 0 0 0 0.25rem rgb(37 99 235 / 0.12), 0 0 1.5rem rgb(37 99 235 / 0.3);
   content: "";
   animation: hero-node-pulse 4s ease-in-out infinite;
-}
-
-.hero__visual-orbit,
-.hero-network,
-.hero-dashboard,
-.hero-float-card {
-  display: none;
 }
 
 @keyframes hero-node-pulse {

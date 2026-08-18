@@ -40,6 +40,7 @@ h6 {
   font-weight: var(--tatros-font-weight-semibold);
   line-height: var(--tatros-line-height-heading);
   letter-spacing: var(--tatros-letter-spacing-tight);
+  overflow-wrap: break-word;
   text-wrap: balance;
 }
 

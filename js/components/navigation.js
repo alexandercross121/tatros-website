@@ -128,7 +128,6 @@
     navigation.classList.add("is-menu-open");
     menuToggle.setAttribute("aria-expanded", "true");
     menuToggle.setAttribute("aria-label", "Close navigation menu");
-    overlay.removeAttribute("tabindex");
     lockBodyScroll();
 
     const firstFocusable = menuPanel.querySelector(focusableSelector);
@@ -170,9 +169,10 @@
       return;
     }
 
-    const focusableElements = Array.from(
-      menuPanel.querySelectorAll(focusableSelector),
-    ).filter((element) => element.getClientRects().length > 0);
+    const focusableElements = [
+      menuToggle,
+      ...menuPanel.querySelectorAll(focusableSelector),
+    ].filter((element) => element.getClientRects().length > 0);
 
     if (focusableElements.length === 0) {
       event.preventDefault();
@@ -181,7 +181,7 @@
     }
 
     const firstElement = focusableElements[0];
-    const lastElement = focusableElements.at(-1);
+    const lastElement = focusableElements[focusableElements.length - 1];
 
     if (event.shiftKey && document.activeElement === firstElement) {
       event.preventDefault();
@@ -242,7 +242,7 @@
       links[0]?.focus();
     } else if (event.key === "End") {
       event.preventDefault();
-      links.at(-1)?.focus();
+      links[links.length - 1]?.focus();
     } else if (event.key === "Escape") {
       event.preventDefault();
       ownerToggle && closeSubmenu(ownerToggle, true);
@@ -336,7 +336,11 @@
   document.addEventListener("keydown", handleDocumentKeydown);
   document.addEventListener("pointerdown", handleDocumentPointerDown);
   window.addEventListener("scroll", handleScroll, { passive: true });
-  desktopQuery.addEventListener("change", handleBreakpointChange);
+  if (typeof desktopQuery.addEventListener === "function") {
+    desktopQuery.addEventListener("change", handleBreakpointChange);
+  } else {
+    desktopQuery.addListener(handleBreakpointChange);
+  }
 
   /* ------------------------------------------------------------------------
      Initial state

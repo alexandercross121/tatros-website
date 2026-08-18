@@ -105,6 +105,7 @@
 }
 
 .form-field__label {
+  inline-size: auto;
   inline-size: fit-content;
   color: var(--form-text);
   font-size: var(--tatros-font-size-label, 0.875rem);
