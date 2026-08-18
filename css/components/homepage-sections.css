@@ -273,18 +273,16 @@
 }
 
 /* ==========================================================================
-   Testimonials
+   Partnership Values
    ========================================================================== */
 
-.testimonial-disclaimer {
-  margin-block-start: var(--tatros-space-6);
-  padding: var(--tatros-space-4);
-  border-inline-start: var(--tatros-border-width-strong) solid
-    var(--tatros-color-status-warning-text);
-  background: var(--tatros-color-status-warning-background);
-  color: var(--tatros-color-status-warning-text);
-  font-size: var(--tatros-font-size-caption);
-  line-height: 1.5;
+.partnership-values__grid {
+  --card-grid-min: 14rem;
+}
+
+.partnership-value-card {
+  min-block-size: 9rem;
+  justify-content: center;
 }
 
 /* ==========================================================================

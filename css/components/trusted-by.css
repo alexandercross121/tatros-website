@@ -1,6 +1,6 @@
 /* ========================================================================== 
    Trusted By Section
-   Responsive logo-placeholder grid for approved client identities.
+   Responsive industry grid without implied client identities.
    ========================================================================== */
 
 .trusted-by {
@@ -35,7 +35,7 @@
   font-size: var(--tatros-font-size-body);
 }
 
-/* Logo placeholder grid */
+/* Industry grid */
 .trusted-by__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -45,40 +45,33 @@
   list-style: none;
 }
 
-.trusted-by__logo {
+.trusted-by__industry {
   display: grid;
   min-block-size: 5.5rem;
   place-items: center;
+  gap: var(--tatros-space-2);
+  padding: var(--tatros-space-3);
   border: var(--tatros-border-width-thin) solid
     var(--tatros-color-border-default);
   border-radius: var(--tatros-radius-large);
   background: var(--tatros-color-surface-subtle);
-  color: var(--tatros-color-text-muted);
-  transition:
-    border-color var(--tatros-motion-duration-standard)
-      var(--tatros-motion-easing-standard),
-    box-shadow var(--tatros-motion-duration-standard)
-      var(--tatros-motion-easing-standard),
-    color var(--tatros-motion-duration-standard)
-      var(--tatros-motion-easing-standard),
-    transform var(--tatros-motion-duration-standard)
-      var(--tatros-motion-easing-standard);
+  color: var(--tatros-color-text-secondary);
+  text-align: center;
 }
 
-.trusted-by__logo-mark {
+.trusted-by__industry-icon {
+  inline-size: 2rem;
+  block-size: 2rem;
+  fill: none;
+  stroke: var(--tatros-color-action-primary);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.trusted-by__industry-name {
   font-size: var(--tatros-font-size-label);
-  font-weight: var(--tatros-font-weight-bold);
-  letter-spacing: 0.12em;
-}
-
-/* Hover enhancement is limited to devices that support precise hovering. */
-@media (hover: hover) and (pointer: fine) {
-  .trusted-by__logo:hover {
-    border-color: var(--tatros-color-border-strong);
-    box-shadow: var(--tatros-shadow-2);
-    color: var(--tatros-color-action-primary);
-    transform: translateY(-0.125rem);
-  }
+  font-weight: var(--tatros-font-weight-semibold);
 }
 
 /* Tablet layout */
@@ -101,20 +94,13 @@
   }
 }
 
-/* Reduced-motion preference */
-@media (prefers-reduced-motion: reduce) {
-  .trusted-by__logo {
-    transition: none;
-  }
-
-  .trusted-by__logo:hover {
-    transform: none;
-  }
-}
-
 /* High-contrast mode */
 @media (forced-colors: active) {
-  .trusted-by__logo {
+  .trusted-by__industry {
     border-color: CanvasText;
+  }
+
+  .trusted-by__industry-icon {
+    stroke: CanvasText;
   }
 }
