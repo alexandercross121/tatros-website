@@ -1,0 +1,141 @@
+/* About page modifiers. Foundations come from css/main.css. */
+
+.about-hero {
+  padding-block: clamp(var(--tatros-space-24), 12vw, 10rem);
+  background: var(--tatros-color-surface-strong);
+}
+
+.about-hero::before {
+  inset: auto -15% -45% auto;
+  inline-size: min(70vw, 42rem);
+  aspect-ratio: 1;
+  border: var(--tatros-border-width-thin) solid rgb(147 197 253 / 0.25);
+  border-radius: var(--tatros-radius-full);
+  background: radial-gradient(circle, rgb(37 99 235 / 0.28), transparent 68%);
+}
+
+.about-hero__content {
+  justify-items: start;
+  gap: var(--tatros-space-6);
+}
+
+.about-hero__title {
+  max-inline-size: 15ch;
+  font-size: var(--tatros-font-size-display);
+}
+
+.about-hero .homepage-section__eyebrow {
+  color: var(--tatros-color-blue-300);
+}
+
+.about-page .homepage-section__eyebrow,
+.about-page .card__eyebrow {
+  font-size: var(--tatros-font-size-label);
+  font-weight: var(--tatros-font-weight-bold);
+  letter-spacing: 0.08em;
+}
+
+.about-page .card__eyebrow {
+  color: var(--tatros-color-action-primary);
+}
+
+.about-page .homepage-section__header {
+  margin-block-end: var(--tatros-space-10);
+}
+
+.about-page .homepage-section__title {
+  max-inline-size: 18ch;
+  line-height: var(--tatros-line-height-heading);
+  letter-spacing: var(--tatros-letter-spacing-tight);
+}
+
+.about-page .homepage-section__description {
+  line-height: var(--tatros-line-height-body);
+}
+
+.about-split {
+  align-items: start;
+  row-gap: var(--tatros-space-8);
+}
+
+.about-split .homepage-section__header {
+  margin-block-end: 0;
+}
+
+.about-values,
+.about-steps,
+.about-expertise {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about-values .value-item__number {
+  color: var(--tatros-color-blue-300);
+}
+
+.about-values .value-item {
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--tatros-space-3);
+  padding-block: var(--tatros-space-5) 0;
+  border-color: var(--tatros-color-neutral-700);
+}
+
+.about-values .value-item__content {
+  gap: var(--tatros-space-3);
+}
+
+.about-values .value-item__title {
+  color: var(--tatros-color-text-inverse);
+}
+
+.about-values .value-item__description {
+  color: var(--tatros-color-neutral-300);
+  font-size: var(--tatros-font-size-body-small);
+}
+
+.about-steps > li {
+  display: flex;
+}
+
+.about-steps .card {
+  --card-padding: var(--tatros-space-6);
+}
+
+.about-expertise__link {
+  display: flex;
+  min-block-size: 6rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--tatros-space-4);
+  padding: var(--tatros-space-6);
+  color: var(--tatros-color-text-primary);
+  font-size: var(--tatros-font-size-heading-6);
+  font-weight: var(--tatros-font-weight-semibold);
+  text-decoration: none;
+}
+
+.about-expertise__link:visited {
+  color: var(--tatros-color-text-primary);
+}
+
+@media (forced-colors: active) {
+  .about-hero {
+    border-color: CanvasText;
+    background: Canvas;
+    color: CanvasText;
+    forced-color-adjust: auto;
+  }
+}
+
+@media print {
+  .about-hero {
+    padding-block: 2rem;
+    background: #ffffff;
+    color: #000000;
+  }
+
+  .about-hero__title {
+    color: #000000;
+  }
+}

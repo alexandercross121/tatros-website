@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Learn how Tatros approaches practical technology, digital engineering, and long-term collaboration.">
+    <title>About Tatros | Practical Technology Partnership</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/pages/about.css">
+    <script src="js/components/navigation.js" defer></script>
+  </head>
+  <body>
+    <a class="navigation__skip-link" href="#main-content">Skip to main content</a>
+
+    <!-- ====================================================================
+         Global navigation
+         ==================================================================== -->
+    <header class="navigation" data-navigation>
+      <div class="navigation__container l-container">
+        <a class="navigation__logo" href="/" aria-label="Tatros home">
+          <span class="navigation__logo-mark" aria-hidden="true">T</span>
+          <span class="navigation__logo-text">Tatros</span>
+        </a>
+
+        <button
+          class="navigation__menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+          aria-label="Open navigation menu"
+          data-navigation-toggle
+        >
+          <span class="navigation__menu-icon" aria-hidden="true">
+            <span class="navigation__menu-icon-line"></span>
+            <span class="navigation__menu-icon-line"></span>
+            <span class="navigation__menu-icon-line"></span>
+          </span>
+          <span class="navigation__menu-label">Menu</span>
+        </button>
+
+        <nav
+          class="navigation__panel"
+          id="primary-navigation"
+          aria-label="Primary navigation"
+          data-navigation-panel
+        >
+          <ul class="navigation__list" role="list">
+            <li class="navigation__item">
+              <a class="navigation__link" href="/">Home</a>
+            </li>
+
+            <li class="navigation__item navigation__item--has-submenu" data-navigation-item>
+              <div class="navigation__item-row">
+                <a class="navigation__link" href="services.html">Services</a>
+                <button
+                  class="navigation__submenu-toggle"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="services-menu"
+                  aria-label="Show Services menu"
+                  data-submenu-toggle
+                >
+                  <svg
+                    class="navigation__submenu-icon"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    height="16"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="m3 6 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </button>
+              </div>
+
+              <ul class="navigation__submenu" id="services-menu" role="list" data-submenu>
+                <li><a class="navigation__submenu-link" href="services.html#artificial-intelligence">Artificial Intelligence</a></li>
+                <li><a class="navigation__submenu-link" href="services.html#web-development">Website Development</a></li>
+                <li><a class="navigation__submenu-link" href="services.html#mobile-development">Mobile App Development</a></li>
+                <li><a class="navigation__submenu-link" href="services.html#software-development">Software Development</a></li>
+                <li><a class="navigation__submenu-link" href="services.html#managed-it-services">IT Support</a></li>
+                <li><a class="navigation__submenu-link" href="services.html#cloud-solutions">Cloud Solutions</a></li>
+                <li><a class="navigation__submenu-link" href="services.html#it-consulting">IT Consulting</a></li>
+              </ul>
+            </li>
+
+            <li class="navigation__item navigation__item--has-submenu" data-navigation-item>
+              <div class="navigation__item-row">
+                <a class="navigation__link" href="/industries/">Industries</a>
+                <button
+                  class="navigation__submenu-toggle"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="industries-menu"
+                  aria-label="Show Industries menu"
+                  data-submenu-toggle
+                >
+                  <svg
+                    class="navigation__submenu-icon"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    height="16"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="m3 6 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </button>
+              </div>
+
+              <ul class="navigation__submenu" id="industries-menu" role="list" data-submenu>
+                <li><a class="navigation__submenu-link" href="/industries/startups/">Startups</a></li>
+                <li><a class="navigation__submenu-link" href="/industries/small-business/">Small Business</a></li>
+                <li><a class="navigation__submenu-link" href="/industries/enterprise/">Enterprise</a></li>
+                <li><a class="navigation__submenu-link" href="/industries/government/">Government</a></li>
+              </ul>
+            </li>
+
+            <li class="navigation__item">
+              <a class="navigation__link" href="/portfolio/">Portfolio</a>
+            </li>
+            <li class="navigation__item">
+              <a class="navigation__link" href="/blog/">Insights</a>
+            </li>
+            <li class="navigation__item">
+              <a class="navigation__link" href="about.html" aria-current="page">About</a>
+            </li>
+            <li class="navigation__item">
+              <a class="navigation__link" href="/contact/">Contact</a>
+            </li>
+          </ul>
+
+          <a class="navigation__cta" href="/contact/">Start a project</a>
+        </nav>
+      </div>
+
+      <button
+        class="navigation__overlay"
+        type="button"
+        aria-label="Close navigation menu"
+        tabindex="-1"
+        data-navigation-overlay
+      ></button>
+    </header>
+
+    <main class="about-page" id="main-content" tabindex="-1">
+      <section class="final-cta about-hero" aria-labelledby="about-hero-title">
+        <div class="about-hero__layout l-container l-grid">
+          <div class="final-cta__content about-hero__content l-grid__item--full l-grid__item--lg-span-8">
+            <p class="homepage-section__eyebrow">About Tatros</p>
+            <h1 class="final-cta__title about-hero__title" id="about-hero-title">Technology shaped around real goals</h1>
+            <p class="final-cta__description">Tatros helps organizations solve meaningful business problems through practical software, AI, and digital solutions.</p>
+            <a class="button button--primary button--large" href="#who-we-are">Get to know Tatros</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="homepage-section" id="who-we-are" aria-labelledby="who-we-are-title">
+        <div class="about-split l-container l-grid">
+          <header class="homepage-section__header l-grid__item--full l-grid__item--lg-span-5">
+            <p class="homepage-section__eyebrow">Who We Are</p>
+            <h2 class="homepage-section__title" id="who-we-are-title">A practical technology partner</h2>
+          </header>
+          <div class="u-stack l-grid__item--full l-grid__item--lg-span-6">
+            <p class="homepage-section__description">Tatros works with organizations navigating complex technology decisions and delivery challenges.</p>
+            <p class="homepage-section__description">We connect business priorities with clear strategy, thoughtful design, and dependable engineering.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="homepage-section homepage-section--subtle" aria-labelledby="our-story-title">
+        <div class="about-split l-container l-grid">
+          <header class="homepage-section__header l-grid__item--full l-grid__item--lg-span-5">
+            <p class="homepage-section__eyebrow">Our Story</p>
+            <h2 class="homepage-section__title" id="our-story-title">Built on a simple idea</h2>
+          </header>
+          <div class="u-stack l-grid__item--full l-grid__item--lg-span-6">
+            <p class="homepage-section__description">Technology should make work clearer, services better, and progress easier to sustain.</p>
+            <p class="homepage-section__description">That idea guides how Tatros evaluates needs, makes decisions, and builds solutions.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="homepage-section" aria-labelledby="direction-title">
+        <div class="l-container">
+          <header class="homepage-section__header">
+            <p class="homepage-section__eyebrow">Our Direction</p>
+            <h2 class="homepage-section__title" id="direction-title">Mission and vision</h2>
+          </header>
+          <div class="l-grid l-grid--auto-large">
+            <article class="card card--feature"><div class="card__body"><p class="card__eyebrow">Mission</p><h3 class="card__title">Create measurable value</h3><p class="card__description">Deliver modern software, AI, and digital solutions that create measurable value.</p></div></article>
+            <article class="card card--feature"><div class="card__body"><p class="card__eyebrow">Vision</p><h3 class="card__title">Earn lasting trust</h3><p class="card__description">Become a trusted technology partner for organizations embracing digital transformation.</p></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="homepage-section homepage-section--strong" aria-labelledby="values-title">
+        <div class="l-container">
+          <header class="homepage-section__header">
+            <p class="homepage-section__eyebrow">Core Values</p>
+            <h2 class="homepage-section__title" id="values-title">Principles behind every decision</h2>
+          </header>
+          <ul class="about-values l-grid l-grid--auto-small">
+            <li><article class="value-item"><span class="value-item__number" aria-hidden="true">01</span><div class="value-item__content"><h3 class="value-item__title">Simplicity</h3><p class="value-item__description">Make complex choices easier to understand and act on.</p></div></article></li>
+            <li><article class="value-item"><span class="value-item__number" aria-hidden="true">02</span><div class="value-item__content"><h3 class="value-item__title">Quality</h3><p class="value-item__description">Build with care for users, operations, and long-term ownership.</p></div></article></li>
+            <li><article class="value-item"><span class="value-item__number" aria-hidden="true">03</span><div class="value-item__content"><h3 class="value-item__title">Transparency</h3><p class="value-item__description">Keep decisions, tradeoffs, and progress clear.</p></div></article></li>
+            <li><article class="value-item"><span class="value-item__number" aria-hidden="true">04</span><div class="value-item__content"><h3 class="value-item__title">Reliability</h3><p class="value-item__description">Follow through with disciplined delivery and support.</p></div></article></li>
+            <li><article class="value-item"><span class="value-item__number" aria-hidden="true">05</span><div class="value-item__content"><h3 class="value-item__title">Innovation</h3><p class="value-item__description">Apply new technology where it serves a real purpose.</p></div></article></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="homepage-section" aria-labelledby="approach-title">
+        <div class="l-container">
+          <header class="homepage-section__header">
+            <p class="homepage-section__eyebrow">How We Work</p>
+            <h2 class="homepage-section__title" id="approach-title">Clarity from start to finish</h2>
+            <p class="homepage-section__description">A focused approach keeps people, priorities, and technology aligned.</p>
+          </header>
+          <ol class="about-steps l-grid l-grid--auto-small">
+            <li><article class="card"><div class="card__body"><span class="card__eyebrow">01</span><h3 class="card__title">Discover</h3><p class="card__description">Understand goals, users, constraints, and the current environment.</p></div></article></li>
+            <li><article class="card"><div class="card__body"><span class="card__eyebrow">02</span><h3 class="card__title">Plan</h3><p class="card__description">Define the right scope, priorities, measures, and delivery path.</p></div></article></li>
+            <li><article class="card"><div class="card__body"><span class="card__eyebrow">03</span><h3 class="card__title">Design</h3><p class="card__description">Turn requirements into accessible, useful experiences and systems.</p></div></article></li>
+            <li><article class="card"><div class="card__body"><span class="card__eyebrow">04</span><h3 class="card__title">Build</h3><p class="card__description">Deliver maintainable technology with quality controls throughout.</p></div></article></li>
+            <li><article class="card"><div class="card__body"><span class="card__eyebrow">05</span><h3 class="card__title">Support</h3><p class="card__description">Help teams operate, improve, and adapt what has been delivered.</p></div></article></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="homepage-section homepage-section--subtle" aria-labelledby="expertise-title">
+        <div class="l-container">
+          <header class="homepage-section__header">
+            <p class="homepage-section__eyebrow">Technology Expertise</p>
+            <h2 class="homepage-section__title" id="expertise-title">Capabilities connected to outcomes</h2>
+            <p class="homepage-section__description">Tatros brings strategy and engineering together across core technology needs.</p>
+          </header>
+          <ul class="about-expertise l-grid l-grid--auto-medium">
+            <li><a class="card card--interactive about-expertise__link" href="services.html#artificial-intelligence"><span>Artificial Intelligence</span><span aria-hidden="true">→</span></a></li>
+            <li><a class="card card--interactive about-expertise__link" href="services.html#software-development"><span>Software Development</span><span aria-hidden="true">→</span></a></li>
+            <li><a class="card card--interactive about-expertise__link" href="services.html#web-development"><span>Web Development</span><span aria-hidden="true">→</span></a></li>
+            <li><a class="card card--interactive about-expertise__link" href="services.html#mobile-development"><span>Mobile Development</span><span aria-hidden="true">→</span></a></li>
+            <li><a class="card card--interactive about-expertise__link" href="services.html#cloud-solutions"><span>Cloud Solutions</span><span aria-hidden="true">→</span></a></li>
+            <li><a class="card card--interactive about-expertise__link" href="services.html#it-consulting"><span>IT Consulting</span><span aria-hidden="true">→</span></a></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="final-cta" id="contact" aria-labelledby="about-contact-title">
+        <div class="final-cta__layout l-container">
+          <div class="final-cta__content"><h2 class="final-cta__title" id="about-contact-title">Start with the challenge that matters</h2><p class="final-cta__description">Tell us what needs to change. We will help define a practical next step.</p></div>
+          <div class="final-cta__actions" role="group" aria-label="Contact actions"><a class="button button--primary button--large" href="mailto:hello@tatros.com">Contact Tatros</a><a class="button button--outline button--large" href="services.html">Explore Services</a></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="l-container">
+        <div class="site-footer__grid">
+          <div class="site-footer__brand"><a class="site-footer__logo" href="index.html" aria-label="Tatros home">Tatros</a><p class="site-footer__description">Technology consulting and digital engineering for organizations solving complex challenges.</p></div>
+          <nav class="site-footer__navigation" aria-label="Footer navigation">
+            <div class="site-footer__group"><h2 class="site-footer__heading">Services</h2><ul class="site-footer__list"><li><a class="site-footer__link" href="services.html#artificial-intelligence">Artificial Intelligence</a></li><li><a class="site-footer__link" href="services.html#software-development">Software Development</a></li><li><a class="site-footer__link" href="services.html#cloud-solutions">Cloud Solutions</a></li><li><a class="site-footer__link" href="services.html#it-consulting">IT Consulting</a></li></ul></div>
+            <div class="site-footer__group"><h2 class="site-footer__heading">Company</h2><ul class="site-footer__list"><li><a class="site-footer__link" href="about.html" aria-current="page">About</a></li><li><a class="site-footer__link" href="index.html#projects-title">Portfolio</a></li><li><a class="site-footer__link" href="index.html#industries-title">Industries</a></li><li><a class="site-footer__link" href="services.html#process">Process</a></li></ul></div>
+            <div class="site-footer__group"><h2 class="site-footer__heading">Explore</h2><ul class="site-footer__list"><li><a class="site-footer__link" href="services.html">All Services</a></li><li><a class="site-footer__link" href="/blog/">Insights</a></li><li><a class="site-footer__link" href="services.html#faq">FAQ</a></li></ul></div>
+            <div class="site-footer__group"><h2 class="site-footer__heading">Contact</h2><ul class="site-footer__list"><li><a class="site-footer__link" href="#contact">Start a Project</a></li><li><a class="site-footer__link" href="mailto:hello@tatros.com">hello@tatros.com</a></li></ul></div>
+          </nav>
+        </div>
+        <div class="site-footer__legal"><p>&copy; 2026 Tatros. All rights reserved.</p><div><a class="site-footer__link" href="/privacy-policy/">Privacy Policy</a> <a class="site-footer__link" href="/terms-of-service/">Terms of Service</a></div></div>
+      </div>
+    </footer>
+  </body>
+</html>
